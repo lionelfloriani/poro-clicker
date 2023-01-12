@@ -16,6 +16,10 @@ function updateScore() {
     scoreUpdate.innerHTML = clicks;
 }
 
+function displayScore() {
+    scoreUpdate.innerHTML = clicks;
+}
+
 // function that runs autoCLick - check if the points are above the requirement to buy - will be replaced by another function
 
 function start() {
@@ -44,8 +48,14 @@ function clickUp() {
 let multiplierButton = document.getElementById("multiplier");
 
 multiplierButton.addEventListener("click", () => {
-    perclick += 1;
-    multiplierButton.disabled = true;
+    if (clicks >= 10) {
+        perclick += 1;
+        clicks -= 10;
+        displayScore()
+    } else {
+        alert("Vous devez avoir au moins 10 points pour utiliser ce bouton");
+    }
+   
 });
 
 // click = x2 for 30secondes
@@ -53,11 +63,17 @@ multiplierButton.addEventListener("click", () => {
 let buttonBonusTime = document.getElementById("bonus-time");
 
 buttonBonusTime.addEventListener("click", function () {
-    let bonusValue = perclick * 2 - perclick;
-    perclick = perclick + bonusValue;
-    setTimeout(function () {
+    if(clicks >=20){
+        let bonusValue = perclick * 2 - perclick;
+        perclick = perclick + bonusValue;
+        setTimeout(function () {
         perclick = perclick - bonusValue;
-    }, 30000);
+        }, 30000); 
+        clicks-= 20;
+        displayScore()
+    }else{
+        alert("Vous devez avoir au moins 20 points pour utiliser ce bouton");
+    }   
 });
 
 // ceci est un test
