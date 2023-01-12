@@ -59,3 +59,5 @@ buttonBonusTime.addEventListener("click", function () {
         perclick = perclick - bonusValue;
     }, 30000);
 });
+
+// ceci est un test
