@@ -31,7 +31,8 @@ function start() {
 
 let perclick = 1;
 document.getElementById("poro").addEventListener("click", () => {
-    clickUp();
+    clickUp()
+    console.log(5);
 });
 function clickUp() {
     clicks += perclick;

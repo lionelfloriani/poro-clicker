@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#logoL{
+    width: 50px;
+}
+
+#score{
+    width: 50px;
+}
+#poro{
+    width: 300px;
+}
