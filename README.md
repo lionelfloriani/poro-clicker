@@ -6,3 +6,7 @@
 
 We are 3 students @ [BeCode](https://becode.org/)
 "Poro Cliker" is our first group project. The goal is to consolidate the skills we learned so far : GitHub, Team Skills, HTML, CSS, CSS Frameworks, Algorithmics and JavaScript.
+
+### Project Board
+
+https://github.com/users/Onllsan/projects/1/views/1
