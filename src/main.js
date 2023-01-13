@@ -7,6 +7,7 @@ let score = 0;
 let pointsPerClick = 1;
 
 // Get element by ID
+
 let poro = document.getElementById("poro");
 let scoreDisplay = document.getElementById("score");
 let buttonBonusMultiplier = document.getElementById("bonus-multiplier");
@@ -79,3 +80,7 @@ buttonBonusAutoClicker.addEventListener("click", autoClicker);
 
 // Bonus - 200%/30sec
 buttonBonusTime.addEventListener("click", time200);
+
+
+  
+
