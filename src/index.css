@@ -1,13 +1,20 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; 
 
-#logoL{
-    width: 50px;
+body{
+    background-color: beige;
 }
 
-#score{
-    width: 50px;
+
+
+
+#logoL{
+    width: 60px;
+}
+
+#rpicon{
+    width: 60px;
 }
 #poro{
     width: 300px;
