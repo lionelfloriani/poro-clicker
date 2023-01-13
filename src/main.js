@@ -49,7 +49,7 @@ let multiplierButton = document.getElementById("multiplier");
 
 multiplierButton.addEventListener("click", () => {
     if (clicks >= 10) {
-        perclick += 1;
+    perclick += 1;
         clicks -= 10;
         displayScore()
     } else {
@@ -64,11 +64,11 @@ let buttonBonusTime = document.getElementById("bonus-time");
 
 buttonBonusTime.addEventListener("click", function () {
     if(clicks >=20){
-        let bonusValue = perclick * 2 - perclick;
-        perclick = perclick + bonusValue;
-        setTimeout(function () {
+    let bonusValue = perclick * 2 - perclick;
+    perclick = perclick + bonusValue;
+    setTimeout(function () {
         perclick = perclick - bonusValue;
-        }, 30000); 
+    }, 30000);
         clicks-= 20;
         displayScore()
     }else{
