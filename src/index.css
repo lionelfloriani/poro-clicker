@@ -1,21 +1,26 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities; 
+@tailwind utilities;
 
-body{
+body {
     background-color: beige;
 }
 
+#logoL {
+    width: 45px;
+    height: 45px;
+}
 
-
-
-#logoL{
+#rpicon {
     width: 60px;
 }
 
-#rpicon{
-    width: 60px;
+@media (min-width: 340px) {
+    #poro {
+        width: 250px;
+    }
 }
+
 #poro{
     width: 300px;
 }
@@ -90,4 +95,5 @@ body{
   #notification5.show{
     bottom: 2rem;
   }
+
 
