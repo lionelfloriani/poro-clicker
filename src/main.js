@@ -1,64 +1,119 @@
 import "./index.css";
 
-import "./index.css";
+// VAR
 
-let clicks = 0;
-let interval = null;
-let button = document.getElementById("auto-clicker");
-let scoreUpdate = document.getElementById("score");
+// Essensials variables
+let score = 0;
+let pointsPerClick = 1;
 
-button.addEventListener("click", start);
+// Get element by ID
 
-// function autoClick
+let poro = document.getElementById("poro");
+let scoreDisplay = document.getElementById("score");
+let buttonBonusMultiplier = document.getElementById("bonus-multiplier");
+let buttonBonusAutoClicker = document.getElementById("bonus-auto-clicker");
+let buttonBonusTime = document.getElementById("bonus-time");
 
+// FUNCTION
+
+// Update score every click
 function updateScore() {
-    clicks += 1;
-    scoreUpdate.innerHTML = clicks;
+    score += pointsPerClick;
+    scoreDisplay.innerHTML = score;
 }
 
-// function that runs autoCLick - check if the points are above the requirement to buy - will be replaced by another function
+// Refresh score after a purchase
+function refreshScore() {
+    scoreDisplay.innerHTML = score;
+}
 
-function start() {
-    if (clicks >= 100) {
-        interval = setInterval(updateScore, 1000);
-        clicks -= 100;
+// Purchase & activate : Bonus - Auto Clicker
+function autoClicker() {
+    if (score >= 100) {
+        setInterval(updateScore, 1000);
+        score -= 100;
+        refreshScore();
     } else {
+        // Pas besoin de "ELSE" dans le future. Les buttons seront design de manière A, deviendront design en B quand le score est assez élevé pour les acheter et en C quand ils sont achetés.
         alert("Vous devez avoir au moins 100 points pour utiliser ce bouton");
     }
 }
 
-// click on Poro = score + 1
-
-let perclick = 1;
-document.getElementById("poro").addEventListener("click", () => {
-    clickUp()
-    console.log(5);
-});
-function clickUp() {
-    clicks += perclick;
-    document.getElementById("score").innerHTML = clicks;
-    localStorage.setItem("clicksOnPoro", clicks);
+// Purchase & activate : Bonus - Multiplier
+function multiplier() {
+    if (score >= 10) {
+        pointsPerClick = pointsPerClick * 2;
+        score -= 10;
+        refreshScore();
+    } else {
+        // Pas besoin de "ELSE" dans le future. Les buttons seront design de manière A, deviendront design en B quand le score est assez élevé pour les acheter et en C quand ils sont achetés.
+        alert("Vous devez avoir au moins 10 points pour utiliser ce bouton");
+    }
 }
 
-// click = x2 for infinity
+// Purchase & activate : Bonus - 200%/30sec
+function time200() {
+    if (score >= 20) {
+        let bonusValue = pointsPerClick;
+        pointsPerClick = pointsPerClick + bonusValue;
+        setTimeout(function () {
+            pointsPerClick = pointsPerClick - bonusValue;
+        }, 30000);
+        score -= 20;
+        refreshScore();
+    } else {
+        // Pas besoin de "ELSE" dans le future. Les buttons seront design de manière A, deviendront design en B quand le score est assez élevé pour les acheter et en C quand ils sont achetés.
+        alert("Vous devez avoir au moins 20 points pour utiliser ce bouton");
+    }
+}
 
-let multiplierButton = document.getElementById("multiplier");
+// EVENT LISTENER
 
-multiplierButton.addEventListener("click", () => {
-    perclick += 1;
-    multiplierButton.disabled = true;
+// Add `pointsPerClick` to `score` and display it
+poro.addEventListener("click", updateScore);
+
+// Bonus - Multiplier
+buttonBonusMultiplier.addEventListener("click", multiplier);
+
+// Bonus - Auto Clicker
+buttonBonusAutoClicker.addEventListener("click", autoClicker);
+
+// Bonus - 200%/30sec
+buttonBonusTime.addEventListener("click", time200);
+
+
+const notif1 = document.getElementById("notification1");
+buttonBonusMultiplier.addEventListener("click", () =>{
+    notif1.classList.add("show"); 
+    setTimeout(() =>{
+        notif1.classList.remove("show");
+
+    }, 2000);
+})
+
+
+const notif4 = document.getElementById("notification4");
+buttonBonusAutoClicker.addEventListener("click", () =>{
+    notif4.classList.add("show"); 
+    setTimeout(() =>{
+        notif4.classList.remove("show");
+
+    }, 2000);
+})
+
+const notif5 = document.getElementById("notification5");
+buttonBonusTime.addEventListener("click", () =>{
+    notif5.classList.add("show"); 
+    setTimeout(() =>{
+        notif5.classList.remove("show");
+
+    }, 2000);
+})
+
+;
+
+
+poro.addEventListener("click", function(){
+       TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
 });
 
-// click = x2 for 30secondes
-
-let buttonBonusTime = document.getElementById("bonus-time");
-
-buttonBonusTime.addEventListener("click", function () {
-    let bonusValue = perclick * 2 - perclick;
-    perclick = perclick + bonusValue;
-    setTimeout(function () {
-        perclick = perclick - bonusValue;
-    }, 30000);
-});
-
-// ceci est un test
