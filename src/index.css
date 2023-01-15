@@ -96,4 +96,8 @@ body {
     bottom: 2rem;
   }
 
+.disabled{
+    background-color: gray;
+    cursor: not-allowed;
+}
 
