@@ -19,3 +19,75 @@ body{
 #poro{
     width: 300px;
 }
+
+
+#notification1{
+    position: fixed;
+    bottom: -8rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+  }
+  #notification1.show{
+    bottom: 2rem;
+  }
+
+  #notification2{
+    position: fixed;
+    bottom: -8rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+  }
+  #notification2.show{
+    bottom: 2rem;
+  }
+
+  #notification3{
+    position: fixed;
+    bottom: -8rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+  }
+  #notification3.show{
+    bottom: 2rem;
+  }
+
+  #notification4{
+    position: fixed;
+    bottom: -8rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+  }
+  #notification4.show{
+    bottom: 2rem;
+  }
+
+  #notification5{
+    position: fixed;
+    bottom: -8rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+  }
+  #notification5.show{
+    bottom: 2rem;
+  }
+
