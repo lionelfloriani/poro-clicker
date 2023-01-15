@@ -106,6 +106,9 @@ buttonBonusAutoClicker.addEventListener("click", autoClicker);
 // Bonus - 200%/30sec
 buttonBonusTime.addEventListener("click", time200);
 
-
+let resetButtons = document.getElementById("reset");
+resetButtons.addEventListener("click", function(){
+    
+})
   
 
