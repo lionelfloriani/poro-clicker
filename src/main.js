@@ -110,5 +110,44 @@ let resetButtons = document.getElementById("reset");
 resetButtons.addEventListener("click", function(){
     
 })
+
   
+const notif1 = document.getElementById("notification1");
+buttonBonusMultiplier.addEventListener("click", () =>{
+    notif1.classList.add("show"); 
+    setTimeout(() =>{
+        notif1.classList.remove("show");
+
+    }, 2000);
+})
+
+
+const notif4 = document.getElementById("notification4");
+buttonBonusAutoClicker.addEventListener("click", () =>{
+    notif4.classList.add("show"); 
+    setTimeout(() =>{
+        notif4.classList.remove("show");
+
+    }, 2000);
+})
+
+const notif5 = document.getElementById("notification5");
+buttonBonusTime.addEventListener("click", () =>{
+    notif5.classList.add("show"); 
+    setTimeout(() =>{
+        notif5.classList.remove("show");
+
+    }, 2000);
+})
+
+;
+
+
+poro.addEventListener("click", function(){
+       TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
+});
+
+poro.addEventListener("click", function(){
+       TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
+});
 
