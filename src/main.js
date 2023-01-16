@@ -9,15 +9,15 @@ let pointsPerClick = 1;
 
 // Get element by ID
 
-let poro = document.getElementById("poro");
-let scoreDisplay = document.getElementById("score");
-let buttonBonusMultiplier = document.getElementById("bonus-multiplier");
-let buttonBonusMultiplier5 = document.getElementById("bonus-multiplier5");
-let buttonBonusMultiplier10 = document.getElementById("bonus-multiplier10");
-let buttonBonusAutoClicker = document.getElementById("bonus-auto-clicker");
-let buttonBonusTime = document.getElementById("bonus-time");
-let resetButtons = document.getElementById("reset");
-let autoClickerId = [];
+const poro = document.getElementById("poro");
+const scoreDisplay = document.getElementById("score");
+const buttonBonusMultiplier = document.getElementById("bonus-multiplier");
+const buttonBonusMultiplier5 = document.getElementById("bonus-multiplier5");
+const buttonBonusMultiplier10 = document.getElementById("bonus-multiplier10");
+const buttonBonusAutoClicker = document.getElementById("bonus-auto-clicker");
+const buttonBonusTime = document.getElementById("bonus-time");
+const resetButtons = document.getElementById("reset");
+const autoClickerId = [];
 
 // FUNCTION
 
@@ -104,7 +104,7 @@ function refreshScore() {
 }
 
 // Purchase & activate : Bonus - Auto Clicker
-let priceAutoClicker = 10;
+const priceAutoClicker = 10;
 let bonusPriceAutoClicker = priceAutoClicker;
 
 buttonBonusAutoClicker.onmouseover = function() {
@@ -127,7 +127,7 @@ function autoClicker() {
 
 
 // Purchase & activate : Bonus - Multiplier
-let priceMultiplier = 10;
+const priceMultiplier = 10;
 let bonusPriceMultiplier = priceMultiplier;
 
 buttonBonusMultiplier.onmouseover = function() {
@@ -148,7 +148,7 @@ function multiplier() {
     }
 }
 
-let priceMultiplier5 = 10;
+const priceMultiplier5 = 10;
 let bonusPriceMultiplier5 = priceMultiplier5;
 
 buttonBonusMultiplier5.onmouseover = function() {
@@ -169,7 +169,7 @@ function multiplier5() {
     }
 }
 
-let priceMultiplier10 = 10;
+const priceMultiplier10 = 10;
 let bonusPriceMultiplier10 = priceMultiplier10;
 
 buttonBonusMultiplier10.onmouseover = function() {
@@ -190,7 +190,7 @@ function multiplier10() {
     }
 }
 // Purchase & activate : Bonus - 200%/30sec
-let priceBonusTime = 10;
+const priceBonusTime = 10;
 let bonusPriceTime = priceBonusTime;
 
 buttonBonusTime.onmouseover = function() {
@@ -204,7 +204,7 @@ buttonBonusTime.onmouseout = function() {
 
 function time200() {
     if (score >= bonusPriceTime) {
-        let bonusValue = pointsPerClick;
+        const bonusValue = pointsPerClick;
         pointsPerClick = pointsPerClick + bonusValue;
         setTimeout(function () {
             pointsPerClick = pointsPerClick - bonusValue;
@@ -289,11 +289,14 @@ buttonBonusTime.addEventListener("click", () =>{
 })
 
 poro.addEventListener("click", function(){
+    // eslint-disable-next-line no-undef
     TweenLite.to(poro, 0.1, {scale: 1.2, ease: Power1.easeInOut});
+    // eslint-disable-next-line no-undef
     TweenLite.to(poro, 0.1, {scale: 1, delay: 0.1, ease: Power1.easeInOut});
 });
 
 
+// eslint-disable-next-line no-unused-vars
 let gameStarted = false;
 const playButton = document.getElementById("play");
 const gamePage = document.getElementById("game");
