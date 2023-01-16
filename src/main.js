@@ -404,15 +404,10 @@ poro.addEventListener("click", function(){
     TweenLite.to(poro, 0.1, {scale: 1, delay: 0.1, ease: Power1.easeInOut});
 });
 
-
-
-
-
 // eslint-disable-next-line no-unused-vars
 let gameStarted = false;
 const playButton = document.getElementById("play");
 const gamePage = document.getElementById("game");
-
 const welcomeText = document.getElementById("welcomepage");
 
 playButton.addEventListener("click", function () {
@@ -422,5 +417,15 @@ playButton.addEventListener("click", function () {
     welcomeText.style.display = "none";
   });
   
-  playButton.style.pointerEvents = "auto";
+document.body.style.pointerEvents = "none";
+ playButton.style.pointerEvents = "auto";
+ resetButtons.style.pointerEvents = "auto";
 
+
+//    resetButtons.addEventListener("click", function() {
+//      gameStarted = false;
+//      // gamePage.classList.add("blur");
+//      gamePage.style.pointerEvents = "none";
+//      score.innerHTML = 0;
+//      document.body.style.pointerEvents = "none";
+//    });
