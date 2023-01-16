@@ -21,12 +21,11 @@ body {
     }
 }
 
-#poro{
+#poro {
     width: 300px;
 }
 
-
-#notification1{
+#notification1 {
     position: fixed;
     top: -15rem;
     color: white;
@@ -40,7 +39,8 @@ body {
     top: 5rem;
   }
 
-  #notification2{
+
+#notification2 {
     position: fixed;
     top: -15rem;
     color: white;
@@ -54,7 +54,8 @@ body {
     top: 5rem;
   }
 
-  #notification3{
+
+#notification3 {
     position: fixed;
     top: -15rem;
     color: white;
@@ -68,7 +69,8 @@ body {
     top: 5rem;
   }
 
-  #notification4{
+
+#notification4 {
     position: fixed;
     top: -15rem;
     color: white;
@@ -82,7 +84,8 @@ body {
     top: 5rem;
   }
 
-  #notification5{
+
+#notification5 {
     position: fixed;
     top: -15rem;
     color: white;
@@ -95,6 +98,7 @@ body {
   #notification5.show{
     top: 5rem;
   }
+
 
 .blur{
   filter: 5px;
