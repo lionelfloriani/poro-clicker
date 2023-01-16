@@ -98,8 +98,8 @@ body {
 
 .blur{
   filter: 5px;
-}
-
-#play{
-  display: block;
+  
+.disabled{
+    background-color: gray;
+    cursor: not-allowed;
 }
