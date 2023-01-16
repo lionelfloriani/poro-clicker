@@ -95,11 +95,11 @@ body {
     bottom: 2rem;
 }
 
-.blur {
-    filter: 5px;
+.blur{
+  filter: 5px;
 }
-
-.disabled {
+  
+.disabled{
     background-color: gray;
     cursor: not-allowed;
 }

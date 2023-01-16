@@ -3,7 +3,8 @@ import "./index.css";
 // VAR
 
 // Essensials variables
-let score = 0;
+// let score = 0; 
+let score = parseInt(localStorage.getItem("score")) || 0;
 let pointsPerClick = 1;
 
 // Get element by ID
@@ -82,11 +83,14 @@ function reset() {
     // checkScoreMultiplier5();
     // checkScoreMultiplier10();
     // // checkScoreBonusTime();
+        localStorage.removeItem("score");
 }
+
 
 // Update score every click
 function updateScore() {
     score += pointsPerClick;
+    localStorage.setItem("score", score)
     scoreDisplay.innerHTML = score;
     checkScoreAutoClicker();
     checkScoreMultiplier();
@@ -329,11 +333,25 @@ let gameStarted = false;
 const playButton = document.getElementById("play");
 const gamePage = document.getElementById("game");
 
-playButton.addEventListener("click", function () {
+const welcomeText = document.getElementById("welcomepage");
+
+playButton.addEventListener("click", function() {
     gameStarted = true;
     gamePage.classList.remove("blur");
     gamePage.style.pointerEvents = "auto";
-});
+    welcomeText.style.display = "none";
+  });
+  
+  document.body.style.pointerEvents = "none";
+  playButton.style.pointerEvents = "auto";
+
+  resetButtons.addEventListener("click", function() {
+    gameStarted = false;
+    gamePage.classList.add("blur");
+    gamePage.style.pointerEvents = "none";
+    score.innerHTML = 0;
+    document.body.style.pointerEvents = "none";
+  });
 
 // document.body.style.pointerEvents = "none";
 playButton.style.pointerEvents = "auto";
@@ -344,7 +362,3 @@ playButton.style.pointerEvents = "auto";
 //     gamePage.style.pointerEvents = "none";
 //     document.body.style.pointerEvents = "none";
 // });
-
-poro.addEventListener("click", function () {
-    TweenLite.to(poro, 0.1, { scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut });
-});
