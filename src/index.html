@@ -9,25 +9,22 @@
     </head>
 
     <body>
-        <nav class="flex border-b-4 border-b-blue-500 align-center items-center bg-blue-800">
-            <div class="content p-0 flex mt-2 mb-2 ml-2">
+        <nav class="flex align-center items-center p-4">
+            <div class="flex justify-start align-middle basis-1/2">
                 <img id="logoL" src="img/lolicon.png" />
             </div>
-            <button
-                type="button"
-                id="play"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded mt-2 mb-2 ml-2"
-            >Play
-            </button> 
-            <div class= "inline-flex border-solid border-0 ml- gap-2 align-center">
-                <div id="score" class="text-xl font-bold text-black pl-2 pt-2"></div>
-                <img id="rpicon" class="pr-2" src="img/rpicon.png">
-            </div>
-            <div class="ml-auto mr-2">
+            <div class="flex justify-end align-middle basis-1/2">
+                <button
+                    type="button"
+                    id="play"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-3 py-1 rounded mt-2 mb-2 ml-2"
+                >
+                    Play
+                </button>
                 <button
                     type="button"
                     id="reset"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded mt-2 mb-2 ml-2"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-3 py-1 rounded mt-2 mb-2 ml-2"
                 >
                     Reset
                 </button>
@@ -45,79 +42,77 @@
         </div>
     </section>
         <section id="game" class="blur">
-            <div class="grid grid-cols-5 p-5 flex flex-col align-center justify-center gap-3 mt-2">
-                <div 
-                    id="clickonme"
-                    class="col-start-3 col-end-4 flex items-center justify-center border-solid border-2 border-sky-400">
-                        Click on me !
+            <div class="container mt-10 flex flex-col justify-center">
+                <div>
+                    <div class="flex justify-center align-middle">
+                        <div id="score" class="text-xl font-bold text-black pl-2 pt-2 content-center"></div>
+                        <img id="rpicon" class="pr-2" src="img/rpicon.png" />
+                    </div>
+                    <div id="clickonme" class="col-start-3 col-end-4 flex items-center justify-center">Click on me !</div>
+                    <div class="col-start-3 col-end-4 flex items-center justify-center align-items-center">
+                        <img id="poro" src="img/poro.svg" />
+                    </div>
                 </div>
-                <div class="ml-auto mr-2">
-                    <button
-                        type="button"
-                        id="reset"
-                        class="bg-blue-500 text-white font-bold py-4 px-6 rounded mt-2 mb-2 ml-2"
-                    >
-                        Reset
-                    </button>
+                <div class="mt-10 justify-center">
+                    <div class="flex flex-col justify-center gap-4">
+                        <div class="flex flex-col justify-center items-center border">
+                            <div id="obtain">RP Obtenus :</div>
+                            <div id="spent" class="">RP Depensés :</div>
+                            <div id="clicks" class="">Clicks :</div>
+                            <div id="rpclicks">RP/Click : X1</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-start-1 col-end-2 flex flex-col border-solid border-2 border-black my-auto">
-                    <div id="obtain">
-                        RP Obtenus :
-                    </div>
-                    <div id="spent" class="border-solid border-2 border-t-black">
-                        RP Depensée :
-                    </div>
-                    <div id="clicks" class="border-solid border-2 border-t-black">
-                        Clicks :
-                    </div>
-                    <div id="clickseconds" class="border-solid border-2 border-t-black">
-                        RP/s : 
-                    </div>
-                    <div class="col-start-5 col-end-6 my-auto">
-                        <div class="col-start-5 col-end-6 gap-3 flex flex-row align-items-center mb-3">
+                <div class="mt-10 p-10">
+                    <div class="col-start-5 col-end-6 gap-3 flex flex-col align-items-center">
+                        <div class="flex content-center justify-between gap-3">
                             <button
                                 type="button"
                                 id="bonus-multiplier"
-                                class="bg-blue-500 text-white font-bold py-2 px-4 rounded w-1/3"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded grow"
                             >
                                 X2
                             </button>
-
                             <button
                                 type="button"
                                 id="bonus-multiplier5"
-                                class="bg-blue-500 text-white font-bold py-2 px-4 rounded w-1/3"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded grow"
                             >
                                 X5
                             </button>
-
                             <button
                                 type="button"
                                 id="bonus-multiplier10"
-                                class="bg-blue-500 text-white font-bold py-2 px-4 rounded w-1/3"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded grow"
                             >
                                 X10
                             </button>
                         </div>
-                        <button 
-                            type="button" 
+                        <button
+                            type="button"
+                            id="bonus-auto-clicker"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        >
+                            Auto Click
+                        </button>
+
+                        <button
+                            type="button"
                             id="bonus-time"
                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                         >
                             Bonus Time
                         </button>
-                    </div>   
-                </div>                
+                    </div>
+                </div>
             </div>
         </section>
-    
             <div id="notification1">Your clicks are multiplied by 2</div>
             <div id="notification2">Your clicks are multiplied by 5</div>
             <div id="notification3">Your clicks are multiplied by 10</div>
 
             <div id="notification4">You earned an auto-click per 1s</div>
             <div id="notification5">Your earned a boost of 200% for 30s</div>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
         <script type="module" src="./main.js"></script>
     </body>
