@@ -101,6 +101,7 @@ function updateScore() {
     displayScore();
     displayClicks();
     click();
+    rpPerClick();
 }
 
 // Refresh score after a purchase
@@ -143,6 +144,10 @@ function displayClicks() {
     document.getElementById("clicks").innerHTML = "Clicks : " + clicks;
 }
 
+function rpPerClick() {
+    document.getElementById("rpclicks").innerHTML = "RP/Click : " + pointsPerClick
+}
+
 // Purchase & activate : Bonus - Auto Clicker
 const priceAutoClicker = 10;
 let bonusPriceAutoClicker = priceAutoClicker;
@@ -163,7 +168,9 @@ function autoClicker() {
         bonusPriceAutoClicker *= 2;
         refreshScore();
         displaySpent();
-    } 
+        rpPerClick();
+    }
+
 }
 
 // Purchase & activate : Bonus - Multiplier
@@ -186,6 +193,7 @@ function multiplier() {
         bonusPriceMultiplier *= 2;
         refreshScore();
         displaySpent();
+        rpPerClick();
     }
 }
 
@@ -208,6 +216,7 @@ function multiplier5() {
         bonusPriceMultiplier5 *= 2;
         refreshScore();
         displaySpent();
+        rpPerClick();
     }
 }
 
@@ -230,6 +239,7 @@ function multiplier10() {
         bonusPriceMultiplier10 *= 2;
         refreshScore();
         displaySpent();
+        rpPerClick();
     }
 }
 // Purchase & activate : Bonus - 200%/30sec
@@ -284,6 +294,7 @@ function time200() {
                 timeLeft = 30;
                 innerIndex = 1;
                 displaySpent();
+                rpPerClick();
             }
         } else {
             if (score >= bonusPriceTime) {
