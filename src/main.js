@@ -3,7 +3,8 @@ import "./index.css";
 // VAR
 
 // Essensials variables
-let score = 0;
+// let score = 0; 
+let score = parseInt(localStorage.getItem("score")) || 0;
 let pointsPerClick = 1;
 
 // Get element by ID
@@ -63,6 +64,7 @@ function checkScoreBonusTime(){
 function reset(){
     score = 0;
     pointsPerClick = 1;
+    localStorage.removeItem("score");
     bonusPriceAutoClicker = priceAutoClicker;
     bonusPriceMultiplier = priceMultiplier;
     bonusPriceMultiplier5 = priceMultiplier5;
@@ -78,9 +80,11 @@ function reset(){
     checkScoreBonusTime();
 }
 
+
 // Update score every click
 function updateScore() {
     score += pointsPerClick;
+    localStorage.setItem("score", score)
     scoreDisplay.innerHTML = score;
     checkScoreAutoClicker();
     checkScoreMultiplier();
@@ -284,22 +288,27 @@ buttonBonusTime.addEventListener("click", () =>{
     }, 2000);
 })
 
+poro.addEventListener("click", function(){
+    TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
+});
+
 
 let gameStarted = false;
 const playButton = document.getElementById("play");
 const gamePage = document.getElementById("game");
-
+const welcomeText = document.getElementById("welcomepage");
 
 playButton.addEventListener("click", function() {
     gameStarted = true;
     gamePage.classList.remove("blur");
     gamePage.style.pointerEvents = "auto";
+    welcomeText.style.display = "none";
   });
   
   document.body.style.pointerEvents = "none";
   playButton.style.pointerEvents = "auto";
 
-  reset.addEventListener("click", function() {
+  resetButtons.addEventListener("click", function() {
     gameStarted = false;
     gamePage.classList.add("blur");
     gamePage.style.pointerEvents = "none";
@@ -308,9 +317,8 @@ playButton.addEventListener("click", function() {
   });
 
 
-  poro.addEventListener("click", function(){
-    TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
-});
+
+
 
 
 
