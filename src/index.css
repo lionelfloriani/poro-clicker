@@ -96,4 +96,10 @@ body {
     bottom: 2rem;
   }
 
+.blur{
+  filter: 5px;
+}
 
+#play{
+  display: block;
+}

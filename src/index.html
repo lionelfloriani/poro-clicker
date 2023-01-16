@@ -9,17 +9,24 @@
     </head>
 
     <body>
+        <section class="align-center items-center"></section>
+        <button
+                type="button"
+                id="play"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded mt-2 mb-2 ml-2"
+            >Play
+            </button> 
+        <section id="game" class="blur">
         <nav class="flex border-b-4 border-b-blue-500 align-center items-center">
             <div class="content p-0 flex mt-2 mb-2 ml-2">
                 <img id="logoL" src="img/lolicon.png" />
             </div>
-            <button
+            <!-- <button
                 type="button"
                 id="play"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded mt-2 mb-2 ml-2"
-            >
-                Play
-            </button>
+            >Play
+            </button>  -->
             <div class= "inline-flex border-solid border-2 ml- gap-2 align-center">
                 <div id="score" class="text-xl font-bold text-black pl-2 pt-2"></div>
                 <img id="rpicon" class="pr-2" src="img/rpicon.png">
@@ -93,12 +100,13 @@
         </section>
         <script type="module" src="./main.js"></script>
             <div id="notification1">Your clicks are multiplied by 2</div>
-            <div id="notification2"></div>
-            <div id="notification3"></div>
+            <div id="notification2">Your clicks are multiplied by 5</div>
+            <div id="notification3">Your clicks are multiplied by 10</div>
 
             <div id="notification4">You earned an auto-click per 1s</div>
             <div id="notification5">Your earned a boost of 200% for 30s</div>
-        
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     </body>
 </html>

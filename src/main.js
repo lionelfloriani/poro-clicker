@@ -111,12 +111,28 @@ resetButtons.addEventListener("click", function(){
     
 })
 
-  
 const notif1 = document.getElementById("notification1");
 buttonBonusMultiplier.addEventListener("click", () =>{
     notif1.classList.add("show"); 
     setTimeout(() =>{
         notif1.classList.remove("show");
+
+    }, 2000);
+})
+
+const notif2 = document.getElementById("notification2");
+buttonBonusMultiplier5.addEventListener("click", () =>{
+    notif2.classList.add("show"); 
+    setTimeout(() =>{
+        notif2.classList.remove("show");
+
+    }, 2000);
+})
+const notif3 = document.getElementById("notification3");
+buttonBonusMultiplier10.addEventListener("click", () =>{
+    notif3.classList.add("show"); 
+    setTimeout(() =>{
+        notif3.classList.remove("show");
 
     }, 2000);
 })
@@ -140,14 +156,35 @@ buttonBonusTime.addEventListener("click", () =>{
     }, 2000);
 })
 
-;
+
+let gameStarted = false;
+const playButton = document.getElementById("play");
+const gamePage = document.getElementById("game");
 
 
-poro.addEventListener("click", function(){
-       TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
+playButton.addEventListener("click", function() {
+    gameStarted = true;
+    gamePage.classList.remove("blur");
+    gamePage.style.pointerEvents = "auto";
+  });
+  
+  document.body.style.pointerEvents = "none";
+  playButton.style.pointerEvents = "auto";
+
+  reset.addEventListener("click", function() {
+    gameStarted = false;
+    gamePage.classList.add("blur");
+    gamePage.style.pointerEvents = "none";
+    score.innerHTML = 0;
+    document.body.style.pointerEvents = "none";
+  });
+
+
+  poro.addEventListener("click", function(){
+    TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
 });
 
-poro.addEventListener("click", function(){
-       TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
-});
+
+
+
 
