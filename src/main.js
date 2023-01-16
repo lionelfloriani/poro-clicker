@@ -21,63 +21,69 @@ let autoClickerId = [];
 
 // FUNCTION
 
-function checkScoreAutoClicker(){
-    if(score >= bonusPriceAutoClicker){
+function checkScoreAutoClicker() {
+    if (score >= bonusPriceAutoClicker) {
         buttonBonusAutoClicker.classList.remove("disabled");
-    }else{
+    } else {
         buttonBonusAutoClicker.classList.add("disabled");
     }
 }
 
-function checkScoreMultiplier(){
-    if(score >= bonusPriceMultiplier){
+function checkScoreMultiplier() {
+    if (score >= bonusPriceMultiplier) {
         buttonBonusMultiplier.classList.remove("disabled");
-    }else{
+    } else {
         buttonBonusMultiplier.classList.add("disabled");
     }
 }
 
-function checkScoreMultiplier5(){
-    if(score >= bonusPriceMultiplier5){
+function checkScoreMultiplier5() {
+    if (score >= bonusPriceMultiplier5) {
         buttonBonusMultiplier5.classList.remove("disabled");
-    }else{
+    } else {
         buttonBonusMultiplier5.classList.add("disabled");
     }
 }
 
-function checkScoreMultiplier10(){
-    if(score >= bonusPriceMultiplier10){
+function checkScoreMultiplier10() {
+    if (score >= bonusPriceMultiplier10) {
         buttonBonusMultiplier10.classList.remove("disabled");
-    }else{
+    } else {
         buttonBonusMultiplier10.classList.add("disabled");
     }
 }
 
-function checkScoreBonusTime(){
-    if(score >= bonusPriceTime){
+function checkScoreBonusTime() {
+    if (score >= bonusPriceTime && gateMouseOver === 0) {
         buttonBonusTime.classList.remove("disabled");
-    }else{
+    } else {
         buttonBonusTime.classList.add("disabled");
     }
 }
 
-function reset(){
-    score = 0;
-    pointsPerClick = 1;
-    localStorage.removeItem("score");
-    bonusPriceAutoClicker = priceAutoClicker;
-    bonusPriceMultiplier = priceMultiplier;
-    bonusPriceMultiplier5 = priceMultiplier5;
-    bonusPriceMultiplier10 = priceMultiplier10;
-    bonusPriceTime = priceBonusTime;
-    autoClickerId.forEach(clearInterval);
-    refreshScore();
-    clearTimeout(time200);
-    checkScoreAutoClicker();
-    checkScoreMultiplier();
-    checkScoreMultiplier5();
-    checkScoreMultiplier10();
-    checkScoreBonusTime();
+function reset() {
+    location.reload(true);
+    // score = 0;
+    // innerIndex = 0;
+    // pointsPerClick = 1;
+    // bonusPriceAutoClicker = priceAutoClicker;
+    // bonusPriceMultiplier = priceMultiplier;
+    // bonusPriceMultiplier5 = priceMultiplier5;
+    // bonusPriceMultiplier10 = priceMultiplier10;
+    // bonusPriceTime = priceBonusTime;
+    // autoClickerId.forEach(clearInterval);
+    // refreshScore();
+    // clearTimeout(time200);
+    // clearTimeout(timerId);
+    // timeLeft = -1;
+    // gateMouseOver = 0;
+    // // buttonBonusTime.innerHTML = `Bonus Time`;
+    // checkScoreAutoClicker();
+    // checkScoreMultiplier();
+    // checkScoreMultiplier5();
+    // checkScoreMultiplier10();
+    // // checkScoreBonusTime();
+        localStorage.removeItem("score");
 }
 
 
@@ -107,14 +113,13 @@ function refreshScore() {
 let priceAutoClicker = 10;
 let bonusPriceAutoClicker = priceAutoClicker;
 
-buttonBonusAutoClicker.onmouseover = function() {
-    buttonBonusAutoClicker.innerHTML = "(" 
-    + bonusPriceAutoClicker + " RP)";
-}
+buttonBonusAutoClicker.onmouseover = function () {
+    buttonBonusAutoClicker.innerHTML = "(" + bonusPriceAutoClicker + " RP)";
+};
 
-buttonBonusAutoClicker.onmouseout = function() {
-    buttonBonusAutoClicker.innerHTML = "Auto Click"
-}
+buttonBonusAutoClicker.onmouseout = function () {
+    buttonBonusAutoClicker.innerHTML = "Auto Click";
+};
 
 function autoClicker() {
     if (score >= bonusPriceAutoClicker) {
@@ -122,22 +127,20 @@ function autoClicker() {
         score -= bonusPriceAutoClicker;
         bonusPriceAutoClicker *= 2;
         refreshScore();
-    } 
+    }
 }
-
 
 // Purchase & activate : Bonus - Multiplier
 let priceMultiplier = 10;
 let bonusPriceMultiplier = priceMultiplier;
 
-buttonBonusMultiplier.onmouseover = function() {
-    buttonBonusMultiplier.innerHTML = "("
-    + bonusPriceMultiplier + " RP)"
-}
+buttonBonusMultiplier.onmouseover = function () {
+    buttonBonusMultiplier.innerHTML = "(" + bonusPriceMultiplier + " RP)";
+};
 
-buttonBonusMultiplier.onmouseout = function() {
-    buttonBonusMultiplier.innerHTML = "X2"
-}
+buttonBonusMultiplier.onmouseout = function () {
+    buttonBonusMultiplier.innerHTML = "X2";
+};
 
 function multiplier() {
     if (score >= bonusPriceMultiplier) {
@@ -151,14 +154,13 @@ function multiplier() {
 let priceMultiplier5 = 10;
 let bonusPriceMultiplier5 = priceMultiplier5;
 
-buttonBonusMultiplier5.onmouseover = function() {
-    buttonBonusMultiplier5.innerHTML = "("
-    + bonusPriceMultiplier5 + " RP)"
-}
+buttonBonusMultiplier5.onmouseover = function () {
+    buttonBonusMultiplier5.innerHTML = "(" + bonusPriceMultiplier5 + " RP)";
+};
 
-buttonBonusMultiplier5.onmouseout = function() {
-    buttonBonusMultiplier5.innerHTML = "X5"
-}
+buttonBonusMultiplier5.onmouseout = function () {
+    buttonBonusMultiplier5.innerHTML = "X5";
+};
 
 function multiplier5() {
     if (score >= bonusPriceMultiplier5) {
@@ -172,14 +174,13 @@ function multiplier5() {
 let priceMultiplier10 = 10;
 let bonusPriceMultiplier10 = priceMultiplier10;
 
-buttonBonusMultiplier10.onmouseover = function() {
-    buttonBonusMultiplier10.innerHTML = "("
-    + bonusPriceMultiplier10 + " RP)"
-}
+buttonBonusMultiplier10.onmouseover = function () {
+    buttonBonusMultiplier10.innerHTML = "(" + bonusPriceMultiplier10 + " RP)";
+};
 
-buttonBonusMultiplier10.onmouseout = function() {
-    buttonBonusMultiplier10.innerHTML = "X10"
-}
+buttonBonusMultiplier10.onmouseout = function () {
+    buttonBonusMultiplier10.innerHTML = "X10";
+};
 
 function multiplier10() {
     if (score >= bonusPriceMultiplier10) {
@@ -193,29 +194,75 @@ function multiplier10() {
 let priceBonusTime = 10;
 let bonusPriceTime = priceBonusTime;
 
-buttonBonusTime.onmouseover = function() {
-    buttonBonusTime.innerHTML = "("
-    + bonusPriceTime + " RP)"
-}
+buttonBonusTime.onmouseover = function () {
+    if (gateMouseOver === 0) {
+        buttonBonusTime.innerHTML = "(" + bonusPriceTime + " RP)";
+    }
+};
 
-buttonBonusTime.onmouseout = function() {
-    buttonBonusTime.innerHTML = "Bonus Time"
-}
+buttonBonusTime.onmouseout = function () {
+    if (gateMouseOver === 0) {
+        buttonBonusTime.innerHTML = "Bonus Time";
+    }
+};
 
+let innerIndex = 0;
+let gateMouseOver = 0;
 function time200() {
-    if (score >= bonusPriceTime) {
-        let bonusValue = pointsPerClick;
-        pointsPerClick = pointsPerClick + bonusValue;
-        setTimeout(function () {
-            pointsPerClick = pointsPerClick - bonusValue;
-        }, 30000);
-        score -= bonusPriceTime;
-        refreshScore();
-        bonusPriceTime *= 2;
-        updateScore();
+    if (gateMouseOver === 0) {
+        if (innerIndex === 0) {
+            if (score >= bonusPriceTime) {
+                var timerId = setInterval(countdownBonus, 1000);
+                gateMouseOver = 1;
+                let bonusValue = pointsPerClick;
+                pointsPerClick = pointsPerClick + bonusValue;
+                setTimeout(function () {
+                    pointsPerClick = pointsPerClick - bonusValue;
+                    gateMouseOver = 0;
+                }, 30000);
+                setTimeout(function () {
+                    checkScoreBonusTime();
+                }, 31900);
+                score -= bonusPriceTime;
+                refreshScore();
+                bonusPriceTime *= 2;
+                timeLeft = 30;
+                innerIndex = 1;
+            }
+        } else {
+            if (score >= bonusPriceTime) {
+                timerId;
+                gateMouseOver = 1;
+                let bonusValue = pointsPerClick;
+                pointsPerClick = pointsPerClick + bonusValue;
+                setTimeout(function () {
+                    pointsPerClick = pointsPerClick - bonusValue;
+                    gateMouseOver = 0;
+                    checkScoreBonusTime();
+                }, 30000);
+                score -= bonusPriceTime;
+                refreshScore();
+                bonusPriceTime *= 2;
+                timeLeft = 30;
+            }
+        }
     }
 }
 
+let timeLeft = 30;
+function countdownBonus() {
+    if (timeLeft == -1) {
+        buttonBonusTime.innerHTML = `Bonus Time`;
+        clearTimeout(timerId);
+    } else {
+        if (timeLeft >= 10) {
+            buttonBonusTime.innerHTML = `00:${timeLeft}`;
+        } else {
+            buttonBonusTime.innerHTML = `00:0${timeLeft}`;
+        }
+        timeLeft--;
+    }
+}
 // EVENT LISTENER
 
 // Add `pointsPerClick` to `score` and display it
@@ -232,59 +279,53 @@ buttonBonusAutoClicker.addEventListener("click", autoClicker);
 // Bonus - 200%/30sec
 buttonBonusTime.addEventListener("click", time200);
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     buttonBonusAutoClicker.classList.add("disabled");
     buttonBonusMultiplier.classList.add("disabled");
     buttonBonusMultiplier5.classList.add("disabled");
     buttonBonusMultiplier10.classList.add("disabled");
     buttonBonusTime.classList.add("disabled");
-  });
+});
 
 // Reset buttons
 resetButtons.addEventListener("click", reset);
 
 const notif1 = document.getElementById("notification1");
-buttonBonusMultiplier.addEventListener("click", () =>{
-    notif1.classList.add("show"); 
-    setTimeout(() =>{
+buttonBonusMultiplier.addEventListener("click", () => {
+    notif1.classList.add("show");
+    setTimeout(() => {
         notif1.classList.remove("show");
-
     }, 2000);
-})
+});
 
 const notif2 = document.getElementById("notification2");
-buttonBonusMultiplier5.addEventListener("click", () =>{
-    notif2.classList.add("show"); 
-    setTimeout(() =>{
+buttonBonusMultiplier5.addEventListener("click", () => {
+    notif2.classList.add("show");
+    setTimeout(() => {
         notif2.classList.remove("show");
-
     }, 2000);
-})
+});
 const notif3 = document.getElementById("notification3");
-buttonBonusMultiplier10.addEventListener("click", () =>{
-    notif3.classList.add("show"); 
-    setTimeout(() =>{
+buttonBonusMultiplier10.addEventListener("click", () => {
+    notif3.classList.add("show");
+    setTimeout(() => {
         notif3.classList.remove("show");
-
     }, 2000);
-})
-
+});
 
 const notif4 = document.getElementById("notification4");
-buttonBonusAutoClicker.addEventListener("click", () =>{
-    notif4.classList.add("show"); 
-    setTimeout(() =>{
+buttonBonusAutoClicker.addEventListener("click", () => {
+    notif4.classList.add("show");
+    setTimeout(() => {
         notif4.classList.remove("show");
-
     }, 2000);
-})
+});
 
 const notif5 = document.getElementById("notification5");
-buttonBonusTime.addEventListener("click", () =>{
-    notif5.classList.add("show"); 
-    setTimeout(() =>{
+buttonBonusTime.addEventListener("click", () => {
+    notif5.classList.add("show");
+    setTimeout(() => {
         notif5.classList.remove("show");
-
     }, 2000);
 })
 
@@ -293,10 +334,10 @@ poro.addEventListener("click", function(){
     TweenLite.to(poro, 0.1, {scale: 1, delay: 0.1, ease: Power1.easeInOut});
 });
 
-
 let gameStarted = false;
 const playButton = document.getElementById("play");
 const gamePage = document.getElementById("game");
+
 const welcomeText = document.getElementById("welcomepage");
 
 playButton.addEventListener("click", function() {
@@ -317,11 +358,12 @@ playButton.addEventListener("click", function() {
 //     document.body.style.pointerEvents = "none";
 //   });
 
+// document.body.style.pointerEvents = "none";
+playButton.style.pointerEvents = "auto";
 
-
-
-
-
-
-
-
+// resetButtons.addEventListener("click", function () {
+//     gameStarted = false;
+//     // gamePage.classList.add("blur");
+//     gamePage.style.pointerEvents = "none";
+//     document.body.style.pointerEvents = "none";
+// });
