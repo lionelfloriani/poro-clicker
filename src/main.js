@@ -11,6 +11,8 @@ let pointsPerClick = 1;
 let poro = document.getElementById("poro");
 let scoreDisplay = document.getElementById("score");
 let buttonBonusMultiplier = document.getElementById("bonus-multiplier");
+let buttonBonusMultiplier5 = document.getElementById("bonus-multiplier5");
+let buttonBonusMultiplier10 = document.getElementById("bonus-multiplier10");
 let buttonBonusAutoClicker = document.getElementById("bonus-auto-clicker");
 let buttonBonusTime = document.getElementById("bonus-time");
 
@@ -51,6 +53,27 @@ function multiplier() {
     }
 }
 
+function multiplier5() {
+    if (score >= 10) {
+        pointsPerClick = pointsPerClick * 5;
+        score -= 10;
+        refreshScore();
+    } else {
+        // Pas besoin de "ELSE" dans le future. Les buttons seront design de manière A, deviendront design en B quand le score est assez élevé pour les acheter et en C quand ils sont achetés.
+        alert("Vous devez avoir au moins 10 points pour utiliser ce bouton");
+    }
+}
+
+function multiplier10() {
+    if (score >= 10) {
+        pointsPerClick = pointsPerClick * 10;
+        score -= 10;
+        refreshScore();
+    } else {
+        // Pas besoin de "ELSE" dans le future. Les buttons seront design de manière A, deviendront design en B quand le score est assez élevé pour les acheter et en C quand ils sont achetés.
+        alert("Vous devez avoir au moins 10 points pour utiliser ce bouton");
+    }
+}
 // Purchase & activate : Bonus - 200%/30sec
 function time200() {
     if (score >= 20) {
@@ -74,6 +97,8 @@ poro.addEventListener("click", updateScore);
 
 // Bonus - Multiplier
 buttonBonusMultiplier.addEventListener("click", multiplier);
+buttonBonusMultiplier5.addEventListener("click", multiplier5);
+buttonBonusMultiplier10.addEventListener("click", multiplier10);
 
 // Bonus - Auto Clicker
 buttonBonusAutoClicker.addEventListener("click", autoClicker);
@@ -81,7 +106,12 @@ buttonBonusAutoClicker.addEventListener("click", autoClicker);
 // Bonus - 200%/30sec
 buttonBonusTime.addEventListener("click", time200);
 
+let resetButtons = document.getElementById("reset");
+resetButtons.addEventListener("click", function(){
+    
+})
 
+  
 const notif1 = document.getElementById("notification1");
 buttonBonusMultiplier.addEventListener("click", () =>{
     notif1.classList.add("show"); 
@@ -112,6 +142,10 @@ buttonBonusTime.addEventListener("click", () =>{
 
 ;
 
+
+poro.addEventListener("click", function(){
+       TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
+});
 
 poro.addEventListener("click", function(){
        TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
