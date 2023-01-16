@@ -431,7 +431,7 @@ const gamePage = document.getElementById("game");
 const welcomeText = document.getElementById("welcomepage");
 
 playButton.addEventListener("click", function () {
-    if (parseInt(localStorage.getItem("score")) != 0) {
+    if (parseInt(localStorage.getItem("score")) !== 0) {
         checkScoreAutoClicker();
         checkScoreMultiplier();
         checkScoreMultiplier5();
