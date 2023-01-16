@@ -5,7 +5,10 @@ import "./index.css";
 // Essensials variables
 // let score = 0;
 let score = parseInt(localStorage.getItem("score")) || 0;
-let pointsPerClick = 1;
+let pointsPerClick = parseInt(localStorage.getItem("pointsPerClick")) || 1;
+let clicks = parseInt(localStorage.getItem("click")) || 0;
+let totalObtainScore = parseInt(localStorage.getItem("totalObtainScore")) || 0;
+let totalSpentScore = parseInt(localStorage.getItem("totalSpentScore")) || 0;
 
 // Get element by ID
 
@@ -19,46 +22,60 @@ const buttonBonusTime = document.getElementById("bonus-time");
 const resetButtons = document.getElementById("reset");
 const autoClickerId = [];
 
+document.getElementById("clicks").innerHTML = "Clicks : " + clicks;
+document.getElementById("obtain").innerHTML = "RP Obtenus : " + totalObtainScore;
+document.getElementById("spent").innerHTML = "RP Depensés : " + totalSpentScore;
+document.getElementById("rpclicks").innerHTML = "RP/Click : X" + pointsPerClick;
 scoreDisplay.innerHTML = score;
 // FUNCTION
 
 function checkScoreAutoClicker() {
     if (score >= bonusPriceAutoClicker) {
         buttonBonusAutoClicker.classList.remove("disabled");
+        buttonBonusAutoClicker.classList.add("enabled");
     } else {
         buttonBonusAutoClicker.classList.add("disabled");
+        buttonBonusAutoClicker.classList.remove("enabled");
     }
 }
 
 function checkScoreMultiplier() {
     if (score >= bonusPriceMultiplier) {
         buttonBonusMultiplier.classList.remove("disabled");
+        buttonBonusAutoClicker.classList.add("enabled");
     } else {
         buttonBonusMultiplier.classList.add("disabled");
+        buttonBonusAutoClicker.classList.remove("enabled");
     }
 }
 
 function checkScoreMultiplier5() {
     if (score >= bonusPriceMultiplier5) {
         buttonBonusMultiplier5.classList.remove("disabled");
+        buttonBonusAutoClicker.classList.add("enabled");
     } else {
         buttonBonusMultiplier5.classList.add("disabled");
+        buttonBonusAutoClicker.classList.remove("enabled");
     }
 }
 
 function checkScoreMultiplier10() {
     if (score >= bonusPriceMultiplier10) {
         buttonBonusMultiplier10.classList.remove("disabled");
+        buttonBonusAutoClicker.classList.add("enabled");
     } else {
         buttonBonusMultiplier10.classList.add("disabled");
+        buttonBonusAutoClicker.classList.remove("enabled");
     }
 }
 
 function checkScoreBonusTime() {
     if (score >= bonusPriceTime && gateMouseOver === 0) {
         buttonBonusTime.classList.remove("disabled");
+        buttonBonusAutoClicker.classList.add("enabled");
     } else {
         buttonBonusTime.classList.add("disabled");
+        buttonBonusAutoClicker.classList.remove("enabled");
     }
 }
 
@@ -85,6 +102,10 @@ function reset() {
     // checkScoreMultiplier10();
     // // checkScoreBonusTime();
     localStorage.removeItem("score");
+    localStorage.removeItem("totalObtainScore");
+    localStorage.removeItem("totalSpentScore");
+    localStorage.removeItem("click");
+    localStorage.removeItem("pointsPerClick");
 }
 
 // Update score every click
@@ -99,8 +120,8 @@ function updateScore() {
     checkScoreBonusTime();
     obtainScore(pointsPerClick);
     displayScore();
-    displayClicks();
     click();
+    displayClicks();
     rpPerClick();
 }
 
@@ -114,42 +135,40 @@ function refreshScore() {
     checkScoreBonusTime();
 }
 
-let totalObtainScore = 0;
-
 function obtainScore(score) {
     totalObtainScore += score;
 }
 
 function displayScore() {
+    localStorage.setItem("totalObtainScore", totalObtainScore);
     document.getElementById("obtain").innerHTML = "RP Obtenus : " + totalObtainScore;
 }
-
-let totalSpentScore = 0;
 
 function spentScore(value) {
     totalSpentScore += value;
 }
 
 function displaySpent() {
-    document.getElementById("spent").innerHTML = "RP Depensée : " + totalSpentScore;
+    localStorage.setItem("totalSpentScore", totalSpentScore);
+    document.getElementById("spent").innerHTML = "RP Depensés : " + totalSpentScore;
 }
 
-let clicks = 1;
-
 function click() {
+    localStorage.setItem("click", clicks);
     clicks += 1;
 }
 
 function displayClicks() {
+    localStorage.setItem("click", clicks);
     document.getElementById("clicks").innerHTML = "Clicks : " + clicks;
 }
 
 function rpPerClick() {
-    document.getElementById("rpclicks").innerHTML = "RP/Click : " + pointsPerClick
+    document.getElementById("rpclicks").innerHTML = "RP/Click : X" + pointsPerClick;
 }
 
 // Purchase & activate : Bonus - Auto Clicker
-const priceAutoClicker = 10;
+let priceAutoClicker = 50;
 let bonusPriceAutoClicker = priceAutoClicker;
 
 buttonBonusAutoClicker.onmouseover = function () {
@@ -169,12 +188,12 @@ function autoClicker() {
         refreshScore();
         displaySpent();
         rpPerClick();
+        priceAutoClicker = priceAutoClicker * 2;
     }
-
 }
 
 // Purchase & activate : Bonus - Multiplier
-const priceMultiplier = 10;
+const priceMultiplier = 50;
 let bonusPriceMultiplier = priceMultiplier;
 
 buttonBonusMultiplier.onmouseover = function () {
@@ -188,6 +207,7 @@ buttonBonusMultiplier.onmouseout = function () {
 function multiplier() {
     if (score >= bonusPriceMultiplier) {
         pointsPerClick = pointsPerClick * 2;
+        localStorage.setItem("pointsPerClick", pointsPerClick);
         score -= bonusPriceMultiplier;
         spentScore(bonusPriceMultiplier);
         bonusPriceMultiplier *= 2;
@@ -197,7 +217,7 @@ function multiplier() {
     }
 }
 
-const priceMultiplier5 = 10;
+const priceMultiplier5 = 250;
 let bonusPriceMultiplier5 = priceMultiplier5;
 
 buttonBonusMultiplier5.onmouseover = function () {
@@ -211,6 +231,7 @@ buttonBonusMultiplier5.onmouseout = function () {
 function multiplier5() {
     if (score >= bonusPriceMultiplier5) {
         pointsPerClick = pointsPerClick * 5;
+        localStorage.setItem("pointsPerClick", pointsPerClick);
         score -= bonusPriceMultiplier5;
         spentScore(bonusPriceMultiplier5);
         bonusPriceMultiplier5 *= 2;
@@ -220,7 +241,7 @@ function multiplier5() {
     }
 }
 
-const priceMultiplier10 = 10;
+const priceMultiplier10 = 500;
 let bonusPriceMultiplier10 = priceMultiplier10;
 
 buttonBonusMultiplier10.onmouseover = function () {
@@ -234,6 +255,7 @@ buttonBonusMultiplier10.onmouseout = function () {
 function multiplier10() {
     if (score >= bonusPriceMultiplier10) {
         pointsPerClick = pointsPerClick * 10;
+        localStorage.setItem("pointsPerClick", pointsPerClick);
         score -= bonusPriceMultiplier10;
         spentScore(bonusPriceMultiplier10);
         bonusPriceMultiplier10 *= 2;
@@ -243,35 +265,24 @@ function multiplier10() {
     }
 }
 // Purchase & activate : Bonus - 200%/30sec
-const priceBonusTime = 10;
+const priceBonusTime = 200;
 let bonusPriceTime = priceBonusTime;
 
 buttonBonusTime.onmouseover = function () {
     if (gateMouseOver === 0) {
         buttonBonusTime.innerHTML = "(" + bonusPriceTime + " RP)";
-}
+    }
 };
 
 buttonBonusTime.onmouseout = function () {
     if (gateMouseOver === 0) {
         buttonBonusTime.innerHTML = "Bonus Time";
-}
+    }
 };
 
 let innerIndex = 0;
 let gateMouseOver = 0;
 function time200() {
-    if (score >= bonusPriceTime) {
-        const bonusValue = pointsPerClick;
-        pointsPerClick = pointsPerClick + bonusValue;
-        setTimeout(function () {
-            pointsPerClick = pointsPerClick - bonusValue;
-        }, 30000);
-        score -= bonusPriceTime;
-        refreshScore();
-        bonusPriceTime *= 2;
-        updateScore();
-
     if (gateMouseOver === 0) {
         if (innerIndex === 0) {
             if (score >= bonusPriceTime) {
@@ -313,7 +324,6 @@ function time200() {
             }
         }
     }
-}
 }
 
 let timeLeft = 30;
@@ -360,53 +370,59 @@ resetButtons.addEventListener("click", reset);
 
 const notif1 = document.getElementById("notification1");
 buttonBonusMultiplier.addEventListener("click", () => {
-    notif1.classList.add("show");
-    setTimeout(() => {
-        notif1.classList.remove("show");
-    }, 2000);
+    if (buttonBonusMultiplier.className.includes("enable")) {
+        notif1.classList.add("show");
+        setTimeout(() => {
+            notif1.classList.remove("show");
+        }, 2000);
+    }
 });
 
 const notif2 = document.getElementById("notification2");
 buttonBonusMultiplier5.addEventListener("click", () => {
-    notif2.classList.add("show");
-    setTimeout(() => {
-        notif2.classList.remove("show");
-    }, 2000);
+    if (buttonBonusMultiplier5.className.includes("enable")) {
+        notif2.classList.add("show");
+        setTimeout(() => {
+            notif2.classList.remove("show");
+        }, 2000);
+    }
 });
 const notif3 = document.getElementById("notification3");
 buttonBonusMultiplier10.addEventListener("click", () => {
-    notif3.classList.add("show");
-    setTimeout(() => {
-        notif3.classList.remove("show");
-    }, 2000);
+    if (buttonBonusMultiplier10.className.includes("enable")) {
+        notif3.classList.add("show");
+        setTimeout(() => {
+            notif3.classList.remove("show");
+        }, 2000);
+    }
 });
 
 const notif4 = document.getElementById("notification4");
 buttonBonusAutoClicker.addEventListener("click", () => {
-    notif4.classList.add("show");
-    setTimeout(() => {
-        notif4.classList.remove("show");
-    }, 2000);
+    if (buttonBonusAutoClicker.className.includes("enable")) {
+        notif4.classList.add("show");
+        setTimeout(() => {
+            notif4.classList.remove("show");
+        }, 2000);
+    }
 });
 
 const notif5 = document.getElementById("notification5");
 buttonBonusTime.addEventListener("click", () => {
-    notif5.classList.add("show");
-    setTimeout(() => {
-        notif5.classList.remove("show");
-    }, 2000);
+    if (buttonBonusTime.className.includes("enable")) {
+        notif5.classList.add("show");
+        setTimeout(() => {
+            notif5.classList.remove("show");
+        }, 2000);
+    }
 });
 
-poro.addEventListener("click", function(){
+poro.addEventListener("click", function () {
     // eslint-disable-next-line no-undef
-    TweenLite.to(poro, 0.1, {scale: 1.2, ease: Power1.easeInOut});
+    TweenLite.to(poro, 0.1, { scale: 1.2, ease: Power1.easeInOut });
     // eslint-disable-next-line no-undef
-    TweenLite.to(poro, 0.1, {scale: 1, delay: 0.1, ease: Power1.easeInOut});
+    TweenLite.to(poro, 0.1, { scale: 1, delay: 0.1, ease: Power1.easeInOut });
 });
-
-
-
-
 
 // eslint-disable-next-line no-unused-vars
 let gameStarted = false;
@@ -416,11 +432,17 @@ const gamePage = document.getElementById("game");
 const welcomeText = document.getElementById("welcomepage");
 
 playButton.addEventListener("click", function () {
+    if (parseInt(localStorage.getItem("score")) != 0) {
+        checkScoreAutoClicker();
+        checkScoreMultiplier();
+        checkScoreMultiplier5();
+        checkScoreMultiplier10();
+        checkScoreBonusTime();
+    }
     gameStarted = true;
     gamePage.classList.remove("blur");
     gamePage.style.pointerEvents = "auto";
     welcomeText.style.display = "none";
-  });
-  
-  playButton.style.pointerEvents = "auto";
+});
 
+playButton.style.pointerEvents = "auto";
