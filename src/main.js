@@ -163,7 +163,7 @@ function autoClicker() {
         bonusPriceAutoClicker *= 2;
         refreshScore();
         displaySpent();
-    }
+    } 
 }
 
 // Purchase & activate : Bonus - Multiplier
@@ -239,13 +239,13 @@ let bonusPriceTime = priceBonusTime;
 buttonBonusTime.onmouseover = function () {
     if (gateMouseOver === 0) {
         buttonBonusTime.innerHTML = "(" + bonusPriceTime + " RP)";
-    }
+}
 };
 
 buttonBonusTime.onmouseout = function () {
     if (gateMouseOver === 0) {
         buttonBonusTime.innerHTML = "Bonus Time";
-    }
+}
 };
 
 let innerIndex = 0;
@@ -265,9 +265,10 @@ function time200() {
     if (gateMouseOver === 0) {
         if (innerIndex === 0) {
             if (score >= bonusPriceTime) {
-                var timerId = setInterval(countdownBonus, 1000);
+                // eslint-disable-next-line no-unused-vars
+                const timerId = setInterval(countdownBonus, 1000);
                 gateMouseOver = 1;
-                let bonusValue = pointsPerClick;
+                const bonusValue = pointsPerClick;
                 pointsPerClick = pointsPerClick + bonusValue;
                 setTimeout(function () {
                     pointsPerClick = pointsPerClick - bonusValue;
@@ -286,9 +287,8 @@ function time200() {
             }
         } else {
             if (score >= bonusPriceTime) {
-                timerId;
                 gateMouseOver = 1;
-                let bonusValue = pointsPerClick;
+                const bonusValue = pointsPerClick;
                 pointsPerClick = pointsPerClick + bonusValue;
                 setTimeout(function () {
                     pointsPerClick = pointsPerClick - bonusValue;
@@ -303,11 +303,13 @@ function time200() {
         }
     }
 }
+}
 
 let timeLeft = 30;
 function countdownBonus() {
-    if (timeLeft == -1) {
+    if (timeLeft === -1) {
         buttonBonusTime.innerHTML = `Bonus Time`;
+        // eslint-disable-next-line no-undef
         clearTimeout(timerId);
     } else {
         if (timeLeft >= 10) {
@@ -393,8 +395,9 @@ poro.addEventListener("click", function(){
 
 
 
-// eslint-disable-next-line no-unused-vars
 
+
+// eslint-disable-next-line no-unused-vars
 let gameStarted = false;
 const playButton = document.getElementById("play");
 const gamePage = document.getElementById("game");
@@ -406,16 +409,7 @@ playButton.addEventListener("click", function () {
     gamePage.classList.remove("blur");
     gamePage.style.pointerEvents = "auto";
     welcomeText.style.display = "none";
-});
-
-//   document.body.style.pointerEvents = "none";
-playButton.style.pointerEvents = "auto";
-
-//   resetButtons.addEventListener("click", function() {
-//     gameStarted = false;
-//     // gamePage.classList.add("blur");
-//     gamePage.style.pointerEvents = "none";
-//     score.innerHTML = 0;
-//     document.body.style.pointerEvents = "none";
-//   });
+  });
+  
+  playButton.style.pointerEvents = "auto";
 
