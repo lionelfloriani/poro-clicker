@@ -428,7 +428,6 @@ poro.addEventListener("click", function () {
 let gameStarted = false;
 const playButton = document.getElementById("play");
 const gamePage = document.getElementById("game");
-
 const welcomeText = document.getElementById("welcomepage");
 
 playButton.addEventListener("click", function () {
@@ -443,6 +442,19 @@ playButton.addEventListener("click", function () {
     gamePage.classList.remove("blur");
     gamePage.style.pointerEvents = "auto";
     welcomeText.style.display = "none";
-});
 
-playButton.style.pointerEvents = "auto";
+  });
+  
+document.body.style.pointerEvents = "none";
+ playButton.style.pointerEvents = "auto";
+ resetButtons.style.pointerEvents = "auto";
+
+
+//    resetButtons.addEventListener("click", function() {
+//      gameStarted = false;
+//      // gamePage.classList.add("blur");
+//      gamePage.style.pointerEvents = "none";
+//      score.innerHTML = 0;
+//      document.body.style.pointerEvents = "none";
+//    });
+
