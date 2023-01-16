@@ -19,6 +19,7 @@ let buttonBonusTime = document.getElementById("bonus-time");
 let resetButtons = document.getElementById("reset");
 let autoClickerId = [];
 
+scoreDisplay.innerHTML = score;
 // FUNCTION
 
 function checkScoreAutoClicker() {

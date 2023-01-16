@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 body {
-  background: linear-gradient(181deg, rgb(2, 0, 97) 15%, rgb(97, 149, 219) 158.5%);
+    /* background-image: url(./img/wp.jpeg);
+    background-position: left; */
+
+    height: 100vh;
+    width: 100vw;
 }
 
 #logoL {
@@ -34,11 +38,10 @@ body {
     border-radius: 0.2rem;
     box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
     transition: all 0.4s;
-  }
-  #notification1.show{
+}
+#notification1.show {
     top: 5rem;
-  }
-
+}
 
 #notification2 {
     position: fixed;
@@ -49,11 +52,11 @@ body {
     border-radius: 0.2rem;
     box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
     transition: all 0.4s;
-  }
-  #notification2.show{
-    top: 5rem;
-  }
+}
 
+#notification2.show {
+    top: 5rem;
+}
 
 #notification3 {
     position: fixed;
@@ -64,11 +67,10 @@ body {
     border-radius: 0.2rem;
     box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
     transition: all 0.4s;
-  }
-  #notification3.show{
+}
+#notification3.show {
     top: 5rem;
-  }
-
+}
 
 #notification4 {
     position: fixed;
@@ -79,11 +81,10 @@ body {
     border-radius: 0.2rem;
     box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
     transition: all 0.4s;
-  }
-  #notification4.show{
+}
+#notification4.show {
     top: 5rem;
-  }
-
+}
 
 #notification5 {
     position: fixed;
@@ -94,17 +95,16 @@ body {
     border-radius: 0.2rem;
     box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
     transition: all 0.4s;
-  }
-  #notification5.show{
-    top: 5rem;
-  }
-
-
-.blur{
-  filter: 5px;
 }
-  
-.disabled{
+#notification5.show {
+    top: 5rem;
+}
+
+.blur {
+    filter: 5px;
+}
+
+.disabled {
     background-color: gray;
     cursor: not-allowed;
 }
