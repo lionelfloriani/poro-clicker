@@ -145,7 +145,7 @@ function displayClicks() {
 }
 
 function rpPerClick() {
-    document.getElementById("rpclicks").innerHTML = "RP/Click : " + pointsPerClick
+    document.getElementById("rpclicks").innerHTML = "RP/Clicks : X" + pointsPerClick
 }
 
 // Purchase & activate : Bonus - Auto Clicker
