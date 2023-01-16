@@ -3,7 +3,7 @@ import "./index.css";
 // VAR
 
 // Essensials variables
-// let score = 0; 
+// let score = 0;
 let score = parseInt(localStorage.getItem("score")) || 0;
 let pointsPerClick = 1;
 
@@ -83,14 +83,13 @@ function reset() {
     // checkScoreMultiplier5();
     // checkScoreMultiplier10();
     // // checkScoreBonusTime();
-        localStorage.removeItem("score");
+    localStorage.removeItem("score");
 }
-
 
 // Update score every click
 function updateScore() {
     score += pointsPerClick;
-    localStorage.setItem("score", score)
+    localStorage.setItem("score", score);
     scoreDisplay.innerHTML = score;
     checkScoreAutoClicker();
     checkScoreMultiplier();
@@ -116,11 +115,11 @@ function refreshScore() {
 let totalObtainScore = 0;
 
 function obtainScore(score) {
-  totalObtainScore += score;
+    totalObtainScore += score;
 }
 
 function displayScore() {
-  document.getElementById("obtain").innerHTML = "RP Obtenus : " + totalObtainScore;
+    document.getElementById("obtain").innerHTML = "RP Obtenus : " + totalObtainScore;
 }
 
 let totalSpentScore = 0;
@@ -129,18 +128,18 @@ function spentScore(value) {
     totalSpentScore += value;
 }
 
-function displaySpent(){
-    document.getElementById("spent").innerHTML = "RP Depensée : " + totalSpentScore
+function displaySpent() {
+    document.getElementById("spent").innerHTML = "RP Depensée : " + totalSpentScore;
 }
 
 let clicks = 1;
 
-function click(){
+function click() {
     clicks += 1;
 }
 
-function displayClicks(){
-    document.getElementById("clicks").innerHTML = "Clicks : " + clicks
+function displayClicks() {
+    document.getElementById("clicks").innerHTML = "Clicks : " + clicks;
 }
 
 // Purchase & activate : Bonus - Auto Clicker
@@ -182,7 +181,7 @@ function multiplier() {
     if (score >= bonusPriceMultiplier) {
         pointsPerClick = pointsPerClick * 2;
         score -= bonusPriceMultiplier;
-        spentScore(bonusPriceMultiplier)
+        spentScore(bonusPriceMultiplier);
         bonusPriceMultiplier *= 2;
         refreshScore();
         displaySpent();
@@ -204,7 +203,7 @@ function multiplier5() {
     if (score >= bonusPriceMultiplier5) {
         pointsPerClick = pointsPerClick * 5;
         score -= bonusPriceMultiplier5;
-        spentScore(bonusPriceMultiplier5)
+        spentScore(bonusPriceMultiplier5);
         bonusPriceMultiplier5 *= 2;
         refreshScore();
         displaySpent();
@@ -226,7 +225,7 @@ function multiplier10() {
     if (score >= bonusPriceMultiplier10) {
         pointsPerClick = pointsPerClick * 10;
         score -= bonusPriceMultiplier10;
-        spentScore(bonusPriceMultiplier10)
+        spentScore(bonusPriceMultiplier10);
         bonusPriceMultiplier10 *= 2;
         refreshScore();
         displaySpent();
@@ -267,7 +266,7 @@ function time200() {
                 }, 31900);
                 score -= bonusPriceTime;
                 refreshScore();
-                spentScore(bonusPriceTime)
+                spentScore(bonusPriceTime);
                 bonusPriceTime *= 2;
                 timeLeft = 30;
                 innerIndex = 1;
@@ -371,11 +370,11 @@ buttonBonusTime.addEventListener("click", () => {
     setTimeout(() => {
         notif5.classList.remove("show");
     }, 2000);
-})
+});
 
-poro.addEventListener("click", function(){
-    TweenLite.to(poro, 0.1, {scale: 1.2, ease: Power1.easeInOut});
-    TweenLite.to(poro, 0.1, {scale: 1, delay: 0.1, ease: Power1.easeInOut});
+poro.addEventListener("click", function () {
+    TweenLite.to(poro, 0.1, { scale: 1.2, ease: Power1.easeInOut });
+    TweenLite.to(poro, 0.1, { scale: 1, delay: 0.1, ease: Power1.easeInOut });
 });
 
 let gameStarted = false;
@@ -384,15 +383,15 @@ const gamePage = document.getElementById("game");
 
 const welcomeText = document.getElementById("welcomepage");
 
-playButton.addEventListener("click", function() {
+playButton.addEventListener("click", function () {
     gameStarted = true;
     gamePage.classList.remove("blur");
     gamePage.style.pointerEvents = "auto";
     welcomeText.style.display = "none";
-  });
-  
+});
+
 //   document.body.style.pointerEvents = "none";
-  playButton.style.pointerEvents = "auto";
+playButton.style.pointerEvents = "auto";
 
 //   resetButtons.addEventListener("click", function() {
 //     gameStarted = false;
