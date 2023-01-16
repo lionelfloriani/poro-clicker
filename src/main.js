@@ -42,40 +42,40 @@ function checkScoreAutoClicker() {
 function checkScoreMultiplier() {
     if (score >= bonusPriceMultiplier) {
         buttonBonusMultiplier.classList.remove("disabled");
-        buttonBonusAutoClicker.classList.add("enabled");
+        buttonBonusMultiplier.classList.add("enabled");
     } else {
         buttonBonusMultiplier.classList.add("disabled");
-        buttonBonusAutoClicker.classList.remove("enabled");
+        buttonBonusMultiplier.classList.remove("enabled");
     }
 }
 
 function checkScoreMultiplier5() {
     if (score >= bonusPriceMultiplier5) {
         buttonBonusMultiplier5.classList.remove("disabled");
-        buttonBonusAutoClicker.classList.add("enabled");
+        buttonBonusMultiplier5.classList.add("enabled");
     } else {
         buttonBonusMultiplier5.classList.add("disabled");
-        buttonBonusAutoClicker.classList.remove("enabled");
+        buttonBonusMultiplier5.classList.remove("enabled");
     }
 }
 
 function checkScoreMultiplier10() {
     if (score >= bonusPriceMultiplier10) {
         buttonBonusMultiplier10.classList.remove("disabled");
-        buttonBonusAutoClicker.classList.add("enabled");
+        buttonBonusMultiplier10.classList.add("enabled");
     } else {
         buttonBonusMultiplier10.classList.add("disabled");
-        buttonBonusAutoClicker.classList.remove("enabled");
+        buttonBonusMultiplier10.classList.remove("enabled");
     }
 }
 
 function checkScoreBonusTime() {
     if (score >= bonusPriceTime && gateMouseOver === 0) {
         buttonBonusTime.classList.remove("disabled");
-        buttonBonusAutoClicker.classList.add("enabled");
+        buttonBonusTime.classList.add("enabled");
     } else {
         buttonBonusTime.classList.add("disabled");
-        buttonBonusAutoClicker.classList.remove("enabled");
+        buttonBonusTime.classList.remove("enabled");
     }
 }
 
@@ -442,13 +442,11 @@ playButton.addEventListener("click", function () {
     gamePage.classList.remove("blur");
     gamePage.style.pointerEvents = "auto";
     welcomeText.style.display = "none";
+});
 
-  });
-  
 document.body.style.pointerEvents = "none";
- playButton.style.pointerEvents = "auto";
- resetButtons.style.pointerEvents = "auto";
-
+playButton.style.pointerEvents = "auto";
+resetButtons.style.pointerEvents = "auto";
 
 //    resetButtons.addEventListener("click", function() {
 //      gameStarted = false;
@@ -457,4 +455,3 @@ document.body.style.pointerEvents = "none";
 //      score.innerHTML = 0;
 //      document.body.style.pointerEvents = "none";
 //    });
-
