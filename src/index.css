@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 body {
-  height: 100vh;
+    /* background-image: url(./img/wp.jpeg);
+    background-position: left; */
+
+    height: 100vh;
+    width: 100vw;
 }
 
 #logoL {
@@ -21,12 +25,11 @@ body {
     }
 }
 
-#poro{
+#poro {
     width: 300px;
 }
 
-
-#notification1{
+#notification1 {
     position: fixed;
     top: -15rem;
     color: white;
@@ -35,72 +38,73 @@ body {
     border-radius: 0.2rem;
     box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
     transition: all 0.4s;
-  }
-  #notification1.show{
-    top: 5rem;
-  }
-
-  #notification2{
-    position: fixed;
-    top: -15rem;
-    color: white;
-    background: rgb(84, 141, 233);
-    padding: 1rem 1rem;
-    border-radius: 0.2rem;
-    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s;
-  }
-  #notification2.show{
-    top: 5rem;
-  }
-
-  #notification3{
-    position: fixed;
-    top: -15rem;
-    color: white;
-    background: rgb(84, 141, 233);
-    padding: 1rem 1rem;
-    border-radius: 0.2rem;
-    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s;
-  }
-  #notification3.show{
-    top: 5rem;
-  }
-
-  #notification4{
-    position: fixed;
-    top: -15rem;
-    color: white;
-    background: rgb(84, 141, 233);
-    padding: 1rem 1rem;
-    border-radius: 0.2rem;
-    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s;
-  }
-  #notification4.show{
-    top: 5rem;
-  }
-
-  #notification5{
-    position: fixed;
-    top: -15rem;
-    color: white;
-    background: rgb(84, 141, 233);
-    padding: 1rem 1rem;
-    border-radius: 0.2rem;
-    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
-    transition: all 0.4s;
-  }
-  #notification5.show{
-    top: 5rem;
-  }
-
-.blur{
-  filter: 5px;
 }
-  
-.disabled{
+#notification1.show {
+    top: 5rem;
+}
+
+#notification2 {
+    position: fixed;
+    top: -15rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+
+#notification2.show {
+    top: 5rem;
+}
+
+#notification3 {
+    position: fixed;
+    top: -15rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+#notification3.show {
+    top: 5rem;
+}
+
+#notification4 {
+    position: fixed;
+    top: -15rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+#notification4.show {
+    top: 5rem;
+}
+
+#notification5 {
+    position: fixed;
+    top: -15rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+#notification5.show {
+    top: 5rem;
+}
+
+.blur {
+    filter: 5px;
+}
+
+.disabled {
     background-color: gray;
     cursor: not-allowed;
 }
