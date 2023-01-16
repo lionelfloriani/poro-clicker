@@ -371,6 +371,11 @@ buttonBonusTime.addEventListener("click", () => {
     setTimeout(() => {
         notif5.classList.remove("show");
     }, 2000);
+})
+
+poro.addEventListener("click", function(){
+    TweenLite.to(poro, 0.1, {scale: 1.2, ease: Power1.easeInOut});
+    TweenLite.to(poro, 0.1, {scale: 1, delay: 0.1, ease: Power1.easeInOut});
 });
 
 let gameStarted = false;
@@ -386,16 +391,16 @@ playButton.addEventListener("click", function() {
     welcomeText.style.display = "none";
   });
   
-  document.body.style.pointerEvents = "none";
+//   document.body.style.pointerEvents = "none";
   playButton.style.pointerEvents = "auto";
 
-  resetButtons.addEventListener("click", function() {
-    gameStarted = false;
-    gamePage.classList.add("blur");
-    gamePage.style.pointerEvents = "none";
-    score.innerHTML = 0;
-    document.body.style.pointerEvents = "none";
-  });
+//   resetButtons.addEventListener("click", function() {
+//     gameStarted = false;
+//     // gamePage.classList.add("blur");
+//     gamePage.style.pointerEvents = "none";
+//     score.innerHTML = 0;
+//     document.body.style.pointerEvents = "none";
+//   });
 
 // document.body.style.pointerEvents = "none";
 playButton.style.pointerEvents = "auto";
