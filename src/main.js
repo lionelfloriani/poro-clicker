@@ -3,22 +3,23 @@ import "./index.css";
 // VAR
 
 // Essensials variables
-// let score = 0; 
+// let score = 0;
 let score = parseInt(localStorage.getItem("score")) || 0;
 let pointsPerClick = 1;
 
 // Get element by ID
 
-let poro = document.getElementById("poro");
-let scoreDisplay = document.getElementById("score");
-let buttonBonusMultiplier = document.getElementById("bonus-multiplier");
-let buttonBonusMultiplier5 = document.getElementById("bonus-multiplier5");
-let buttonBonusMultiplier10 = document.getElementById("bonus-multiplier10");
-let buttonBonusAutoClicker = document.getElementById("bonus-auto-clicker");
-let buttonBonusTime = document.getElementById("bonus-time");
-let resetButtons = document.getElementById("reset");
-let autoClickerId = [];
+const poro = document.getElementById("poro");
+const scoreDisplay = document.getElementById("score");
+const buttonBonusMultiplier = document.getElementById("bonus-multiplier");
+const buttonBonusMultiplier5 = document.getElementById("bonus-multiplier5");
+const buttonBonusMultiplier10 = document.getElementById("bonus-multiplier10");
+const buttonBonusAutoClicker = document.getElementById("bonus-auto-clicker");
+const buttonBonusTime = document.getElementById("bonus-time");
+const resetButtons = document.getElementById("reset");
+const autoClickerId = [];
 
+scoreDisplay.innerHTML = score;
 // FUNCTION
 
 function checkScoreAutoClicker() {
@@ -83,14 +84,13 @@ function reset() {
     // checkScoreMultiplier5();
     // checkScoreMultiplier10();
     // // checkScoreBonusTime();
-        localStorage.removeItem("score");
+    localStorage.removeItem("score");
 }
-
 
 // Update score every click
 function updateScore() {
     score += pointsPerClick;
-    localStorage.setItem("score", score)
+    localStorage.setItem("score", score);
     scoreDisplay.innerHTML = score;
     checkScoreAutoClicker();
     checkScoreMultiplier();
@@ -117,11 +117,11 @@ function refreshScore() {
 let totalObtainScore = 0;
 
 function obtainScore(score) {
-  totalObtainScore += score;
+    totalObtainScore += score;
 }
 
 function displayScore() {
-  document.getElementById("obtain").innerHTML = "RP Obtenus : " + totalObtainScore;
+    document.getElementById("obtain").innerHTML = "RP Obtenus : " + totalObtainScore;
 }
 
 let totalSpentScore = 0;
@@ -130,18 +130,18 @@ function spentScore(value) {
     totalSpentScore += value;
 }
 
-function displaySpent(){
-    document.getElementById("spent").innerHTML = "RP Depensée : " + totalSpentScore
+function displaySpent() {
+    document.getElementById("spent").innerHTML = "RP Depensée : " + totalSpentScore;
 }
 
 let clicks = 1;
 
-function click(){
+function click() {
     clicks += 1;
 }
 
-function displayClicks(){
-    document.getElementById("clicks").innerHTML = "Clicks : " + clicks
+function displayClicks() {
+    document.getElementById("clicks").innerHTML = "Clicks : " + clicks;
 }
 
 function rpPerClick() {
@@ -149,7 +149,7 @@ function rpPerClick() {
 }
 
 // Purchase & activate : Bonus - Auto Clicker
-let priceAutoClicker = 10;
+const priceAutoClicker = 10;
 let bonusPriceAutoClicker = priceAutoClicker;
 
 buttonBonusAutoClicker.onmouseover = function () {
@@ -170,10 +170,11 @@ function autoClicker() {
         displaySpent();
         rpPerClick();
     }
+
 }
 
 // Purchase & activate : Bonus - Multiplier
-let priceMultiplier = 10;
+const priceMultiplier = 10;
 let bonusPriceMultiplier = priceMultiplier;
 
 buttonBonusMultiplier.onmouseover = function () {
@@ -188,7 +189,7 @@ function multiplier() {
     if (score >= bonusPriceMultiplier) {
         pointsPerClick = pointsPerClick * 2;
         score -= bonusPriceMultiplier;
-        spentScore(bonusPriceMultiplier)
+        spentScore(bonusPriceMultiplier);
         bonusPriceMultiplier *= 2;
         refreshScore();
         displaySpent();
@@ -196,7 +197,7 @@ function multiplier() {
     }
 }
 
-let priceMultiplier5 = 10;
+const priceMultiplier5 = 10;
 let bonusPriceMultiplier5 = priceMultiplier5;
 
 buttonBonusMultiplier5.onmouseover = function () {
@@ -211,7 +212,7 @@ function multiplier5() {
     if (score >= bonusPriceMultiplier5) {
         pointsPerClick = pointsPerClick * 5;
         score -= bonusPriceMultiplier5;
-        spentScore(bonusPriceMultiplier5)
+        spentScore(bonusPriceMultiplier5);
         bonusPriceMultiplier5 *= 2;
         refreshScore();
         displaySpent();
@@ -219,7 +220,7 @@ function multiplier5() {
     }
 }
 
-let priceMultiplier10 = 10;
+const priceMultiplier10 = 10;
 let bonusPriceMultiplier10 = priceMultiplier10;
 
 buttonBonusMultiplier10.onmouseover = function () {
@@ -234,7 +235,7 @@ function multiplier10() {
     if (score >= bonusPriceMultiplier10) {
         pointsPerClick = pointsPerClick * 10;
         score -= bonusPriceMultiplier10;
-        spentScore(bonusPriceMultiplier10)
+        spentScore(bonusPriceMultiplier10);
         bonusPriceMultiplier10 *= 2;
         refreshScore();
         displaySpent();
@@ -242,30 +243,42 @@ function multiplier10() {
     }
 }
 // Purchase & activate : Bonus - 200%/30sec
-let priceBonusTime = 10;
+const priceBonusTime = 10;
 let bonusPriceTime = priceBonusTime;
 
 buttonBonusTime.onmouseover = function () {
     if (gateMouseOver === 0) {
         buttonBonusTime.innerHTML = "(" + bonusPriceTime + " RP)";
-    }
+}
 };
 
 buttonBonusTime.onmouseout = function () {
     if (gateMouseOver === 0) {
         buttonBonusTime.innerHTML = "Bonus Time";
-    }
+}
 };
 
 let innerIndex = 0;
 let gateMouseOver = 0;
 function time200() {
+    if (score >= bonusPriceTime) {
+        const bonusValue = pointsPerClick;
+        pointsPerClick = pointsPerClick + bonusValue;
+        setTimeout(function () {
+            pointsPerClick = pointsPerClick - bonusValue;
+        }, 30000);
+        score -= bonusPriceTime;
+        refreshScore();
+        bonusPriceTime *= 2;
+        updateScore();
+
     if (gateMouseOver === 0) {
         if (innerIndex === 0) {
             if (score >= bonusPriceTime) {
-                var timerId = setInterval(countdownBonus, 1000);
+                // eslint-disable-next-line no-unused-vars
+                const timerId = setInterval(countdownBonus, 1000);
                 gateMouseOver = 1;
-                let bonusValue = pointsPerClick;
+                const bonusValue = pointsPerClick;
                 pointsPerClick = pointsPerClick + bonusValue;
                 setTimeout(function () {
                     pointsPerClick = pointsPerClick - bonusValue;
@@ -276,7 +289,7 @@ function time200() {
                 }, 31900);
                 score -= bonusPriceTime;
                 refreshScore();
-                spentScore(bonusPriceTime)
+                spentScore(bonusPriceTime);
                 bonusPriceTime *= 2;
                 timeLeft = 30;
                 innerIndex = 1;
@@ -285,9 +298,8 @@ function time200() {
             }
         } else {
             if (score >= bonusPriceTime) {
-                timerId;
                 gateMouseOver = 1;
-                let bonusValue = pointsPerClick;
+                const bonusValue = pointsPerClick;
                 pointsPerClick = pointsPerClick + bonusValue;
                 setTimeout(function () {
                     pointsPerClick = pointsPerClick - bonusValue;
@@ -302,11 +314,13 @@ function time200() {
         }
     }
 }
+}
 
 let timeLeft = 30;
 function countdownBonus() {
-    if (timeLeft == -1) {
+    if (timeLeft === -1) {
         buttonBonusTime.innerHTML = `Bonus Time`;
+        // eslint-disable-next-line no-undef
         clearTimeout(timerId);
     } else {
         if (timeLeft >= 10) {
@@ -381,43 +395,32 @@ buttonBonusTime.addEventListener("click", () => {
     setTimeout(() => {
         notif5.classList.remove("show");
     }, 2000);
-})
+});
 
 poro.addEventListener("click", function(){
+    // eslint-disable-next-line no-undef
     TweenLite.to(poro, 0.1, {scale: 1.2, ease: Power1.easeInOut});
+    // eslint-disable-next-line no-undef
     TweenLite.to(poro, 0.1, {scale: 1, delay: 0.1, ease: Power1.easeInOut});
 });
 
+
+
+
+
+// eslint-disable-next-line no-unused-vars
 let gameStarted = false;
 const playButton = document.getElementById("play");
 const gamePage = document.getElementById("game");
 
 const welcomeText = document.getElementById("welcomepage");
 
-playButton.addEventListener("click", function() {
+playButton.addEventListener("click", function () {
     gameStarted = true;
     gamePage.classList.remove("blur");
     gamePage.style.pointerEvents = "auto";
     welcomeText.style.display = "none";
   });
   
-//   document.body.style.pointerEvents = "none";
   playButton.style.pointerEvents = "auto";
 
-//   resetButtons.addEventListener("click", function() {
-//     gameStarted = false;
-//     // gamePage.classList.add("blur");
-//     gamePage.style.pointerEvents = "none";
-//     score.innerHTML = 0;
-//     document.body.style.pointerEvents = "none";
-//   });
-
-// document.body.style.pointerEvents = "none";
-playButton.style.pointerEvents = "auto";
-
-// resetButtons.addEventListener("click", function () {
-//     gameStarted = false;
-//     // gamePage.classList.add("blur");
-//     gamePage.style.pointerEvents = "none";
-//     document.body.style.pointerEvents = "none";
-// });
