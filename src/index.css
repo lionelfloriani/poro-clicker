@@ -96,4 +96,11 @@ body {
     bottom: 2rem;
   }
 
-
+.blur{
+  filter: 5px;
+}
+  
+.disabled{
+    background-color: gray;
+    cursor: not-allowed;
+}

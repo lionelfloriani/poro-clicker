@@ -3,7 +3,8 @@ import "./index.css";
 // VAR
 
 // Essensials variables
-let score = 0;
+// let score = 0; 
+let score = parseInt(localStorage.getItem("score")) || 0;
 let pointsPerClick = 1;
 
 // Get element by ID
@@ -15,78 +16,203 @@ let buttonBonusMultiplier5 = document.getElementById("bonus-multiplier5");
 let buttonBonusMultiplier10 = document.getElementById("bonus-multiplier10");
 let buttonBonusAutoClicker = document.getElementById("bonus-auto-clicker");
 let buttonBonusTime = document.getElementById("bonus-time");
+let resetButtons = document.getElementById("reset");
+let autoClickerId = [];
 
 // FUNCTION
+
+function checkScoreAutoClicker(){
+    if(score >= bonusPriceAutoClicker){
+        buttonBonusAutoClicker.classList.remove("disabled");
+    }else{
+        buttonBonusAutoClicker.classList.add("disabled");
+    }
+}
+
+function checkScoreMultiplier(){
+    if(score >= bonusPriceMultiplier){
+        buttonBonusMultiplier.classList.remove("disabled");
+    }else{
+        buttonBonusMultiplier.classList.add("disabled");
+    }
+}
+
+function checkScoreMultiplier5(){
+    if(score >= bonusPriceMultiplier5){
+        buttonBonusMultiplier5.classList.remove("disabled");
+    }else{
+        buttonBonusMultiplier5.classList.add("disabled");
+    }
+}
+
+function checkScoreMultiplier10(){
+    if(score >= bonusPriceMultiplier10){
+        buttonBonusMultiplier10.classList.remove("disabled");
+    }else{
+        buttonBonusMultiplier10.classList.add("disabled");
+    }
+}
+
+function checkScoreBonusTime(){
+    if(score >= bonusPriceTime){
+        buttonBonusTime.classList.remove("disabled");
+    }else{
+        buttonBonusTime.classList.add("disabled");
+    }
+}
+
+function reset(){
+    score = 0;
+    pointsPerClick = 1;
+    localStorage.removeItem("score");
+    bonusPriceAutoClicker = priceAutoClicker;
+    bonusPriceMultiplier = priceMultiplier;
+    bonusPriceMultiplier5 = priceMultiplier5;
+    bonusPriceMultiplier10 = priceMultiplier10;
+    bonusPriceTime = priceBonusTime;
+    autoClickerId.forEach(clearInterval);
+    refreshScore();
+    clearTimeout(time200);
+    checkScoreAutoClicker();
+    checkScoreMultiplier();
+    checkScoreMultiplier5();
+    checkScoreMultiplier10();
+    checkScoreBonusTime();
+}
+
 
 // Update score every click
 function updateScore() {
     score += pointsPerClick;
+    localStorage.setItem("score", score)
     scoreDisplay.innerHTML = score;
+    checkScoreAutoClicker();
+    checkScoreMultiplier();
+    checkScoreMultiplier5();
+    checkScoreMultiplier10();
+    checkScoreBonusTime();
 }
 
 // Refresh score after a purchase
 function refreshScore() {
     scoreDisplay.innerHTML = score;
+    checkScoreAutoClicker();
+    checkScoreMultiplier();
+    checkScoreMultiplier5();
+    checkScoreMultiplier10();
+    checkScoreBonusTime();
 }
 
 // Purchase & activate : Bonus - Auto Clicker
+let priceAutoClicker = 10;
+let bonusPriceAutoClicker = priceAutoClicker;
+
+buttonBonusAutoClicker.onmouseover = function() {
+    buttonBonusAutoClicker.innerHTML = "(" 
+    + bonusPriceAutoClicker + " RP)";
+}
+
+buttonBonusAutoClicker.onmouseout = function() {
+    buttonBonusAutoClicker.innerHTML = "Auto Click"
+}
+
 function autoClicker() {
-    if (score >= 100) {
-        setInterval(updateScore, 1000);
-        score -= 100;
+    if (score >= bonusPriceAutoClicker) {
+        autoClickerId.push(setInterval(updateScore, 1000));
+        score -= bonusPriceAutoClicker;
+        bonusPriceAutoClicker *= 2;
         refreshScore();
-    } else {
-        // Pas besoin de "ELSE" dans le future. Les buttons seront design de manière A, deviendront design en B quand le score est assez élevé pour les acheter et en C quand ils sont achetés.
-        alert("Vous devez avoir au moins 100 points pour utiliser ce bouton");
+    } 
+}
+
+
+// Purchase & activate : Bonus - Multiplier
+let priceMultiplier = 10;
+let bonusPriceMultiplier = priceMultiplier;
+
+buttonBonusMultiplier.onmouseover = function() {
+    buttonBonusMultiplier.innerHTML = "("
+    + bonusPriceMultiplier + " RP)"
+}
+
+buttonBonusMultiplier.onmouseout = function() {
+    buttonBonusMultiplier.innerHTML = "X2"
+}
+
+function multiplier() {
+    if (score >= bonusPriceMultiplier) {
+        pointsPerClick = pointsPerClick * 2;
+        score -= bonusPriceMultiplier;
+        bonusPriceMultiplier *= 2;
+        refreshScore();
     }
 }
 
-// Purchase & activate : Bonus - Multiplier
-function multiplier() {
-    if (score >= 10) {
-        pointsPerClick = pointsPerClick * 2;
-        score -= 10;
-        refreshScore();
-    } else {
-        // Pas besoin de "ELSE" dans le future. Les buttons seront design de manière A, deviendront design en B quand le score est assez élevé pour les acheter et en C quand ils sont achetés.
-        alert("Vous devez avoir au moins 10 points pour utiliser ce bouton");
-    }
+let priceMultiplier5 = 10;
+let bonusPriceMultiplier5 = priceMultiplier5;
+
+buttonBonusMultiplier5.onmouseover = function() {
+    buttonBonusMultiplier5.innerHTML = "("
+    + bonusPriceMultiplier5 + " RP)"
+}
+
+buttonBonusMultiplier5.onmouseout = function() {
+    buttonBonusMultiplier5.innerHTML = "X5"
 }
 
 function multiplier5() {
-    if (score >= 10) {
+    if (score >= bonusPriceMultiplier5) {
         pointsPerClick = pointsPerClick * 5;
-        score -= 10;
+        score -= bonusPriceMultiplier5;
+        bonusPriceMultiplier5 *= 2;
         refreshScore();
-    } else {
-        // Pas besoin de "ELSE" dans le future. Les buttons seront design de manière A, deviendront design en B quand le score est assez élevé pour les acheter et en C quand ils sont achetés.
-        alert("Vous devez avoir au moins 10 points pour utiliser ce bouton");
     }
 }
 
+let priceMultiplier10 = 10;
+let bonusPriceMultiplier10 = priceMultiplier10;
+
+buttonBonusMultiplier10.onmouseover = function() {
+    buttonBonusMultiplier10.innerHTML = "("
+    + bonusPriceMultiplier10 + " RP)"
+}
+
+buttonBonusMultiplier10.onmouseout = function() {
+    buttonBonusMultiplier10.innerHTML = "X10"
+}
+
 function multiplier10() {
-    if (score >= 10) {
+    if (score >= bonusPriceMultiplier10) {
         pointsPerClick = pointsPerClick * 10;
-        score -= 10;
+        score -= bonusPriceMultiplier10;
+        bonusPriceMultiplier10 *= 2;
         refreshScore();
-    } else {
-        // Pas besoin de "ELSE" dans le future. Les buttons seront design de manière A, deviendront design en B quand le score est assez élevé pour les acheter et en C quand ils sont achetés.
-        alert("Vous devez avoir au moins 10 points pour utiliser ce bouton");
     }
 }
 // Purchase & activate : Bonus - 200%/30sec
+let priceBonusTime = 10;
+let bonusPriceTime = priceBonusTime;
+
+buttonBonusTime.onmouseover = function() {
+    buttonBonusTime.innerHTML = "("
+    + bonusPriceTime + " RP)"
+}
+
+buttonBonusTime.onmouseout = function() {
+    buttonBonusTime.innerHTML = "Bonus Time"
+}
+
 function time200() {
-    if (score >= 20) {
+    if (score >= bonusPriceTime) {
         let bonusValue = pointsPerClick;
         pointsPerClick = pointsPerClick + bonusValue;
         setTimeout(function () {
             pointsPerClick = pointsPerClick - bonusValue;
         }, 30000);
-        score -= 20;
+        score -= bonusPriceTime;
         refreshScore();
-    } else {
-        // Pas besoin de "ELSE" dans le future. Les buttons seront design de manière A, deviendront design en B quand le score est assez élevé pour les acheter et en C quand ils sont achetés.
-        alert("Vous devez avoir au moins 20 points pour utiliser ce bouton");
+        bonusPriceTime *= 2;
+        updateScore();
     }
 }
 
@@ -106,17 +232,39 @@ buttonBonusAutoClicker.addEventListener("click", autoClicker);
 // Bonus - 200%/30sec
 buttonBonusTime.addEventListener("click", time200);
 
-let resetButtons = document.getElementById("reset");
-resetButtons.addEventListener("click", function(){
-    
-})
+document.addEventListener("DOMContentLoaded", function() {
+    buttonBonusAutoClicker.classList.add("disabled");
+    buttonBonusMultiplier.classList.add("disabled");
+    buttonBonusMultiplier5.classList.add("disabled");
+    buttonBonusMultiplier10.classList.add("disabled");
+    buttonBonusTime.classList.add("disabled");
+  });
 
-  
+// Reset buttons
+resetButtons.addEventListener("click", reset);
+
 const notif1 = document.getElementById("notification1");
 buttonBonusMultiplier.addEventListener("click", () =>{
     notif1.classList.add("show"); 
     setTimeout(() =>{
         notif1.classList.remove("show");
+
+    }, 2000);
+})
+
+const notif2 = document.getElementById("notification2");
+buttonBonusMultiplier5.addEventListener("click", () =>{
+    notif2.classList.add("show"); 
+    setTimeout(() =>{
+        notif2.classList.remove("show");
+
+    }, 2000);
+})
+const notif3 = document.getElementById("notification3");
+buttonBonusMultiplier10.addEventListener("click", () =>{
+    notif3.classList.add("show"); 
+    setTimeout(() =>{
+        notif3.classList.remove("show");
 
     }, 2000);
 })
@@ -140,14 +288,39 @@ buttonBonusTime.addEventListener("click", () =>{
     }, 2000);
 })
 
-;
-
-
 poro.addEventListener("click", function(){
-       TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
+    TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
 });
 
-poro.addEventListener("click", function(){
-       TweenLite.to(poro, 0.1, {scale: 1.2, repeat: 1, yoyo: true, ease: Power1.easeInOut});
-});
+
+let gameStarted = false;
+const playButton = document.getElementById("play");
+const gamePage = document.getElementById("game");
+const welcomeText = document.getElementById("welcomepage");
+
+playButton.addEventListener("click", function() {
+    gameStarted = true;
+    gamePage.classList.remove("blur");
+    gamePage.style.pointerEvents = "auto";
+    welcomeText.style.display = "none";
+  });
+  
+  document.body.style.pointerEvents = "none";
+  playButton.style.pointerEvents = "auto";
+
+  resetButtons.addEventListener("click", function() {
+    gameStarted = false;
+    gamePage.classList.add("blur");
+    gamePage.style.pointerEvents = "none";
+    score.innerHTML = 0;
+    document.body.style.pointerEvents = "none";
+  });
+
+
+
+
+
+
+
+
 
