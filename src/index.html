@@ -9,25 +9,17 @@
     </head>
 
     <body>
-        <section class="align-center items-center"></section>
-        <button
+        <nav class="flex border-b-4 border-b-blue-500 align-center items-center bg-blue-800">
+            <div class="content p-0 flex mt-2 mb-2 ml-2">
+                <img id="logoL" src="img/lolicon.png" />
+            </div>
+            <button
                 type="button"
                 id="play"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded mt-2 mb-2 ml-2"
             >Play
             </button> 
-        <section id="game" class="blur">
-        <nav class="flex border-b-4 border-b-blue-500 align-center items-center">
-            <div class="content p-0 flex mt-2 mb-2 ml-2">
-                <img id="logoL" src="img/lolicon.png" />
-            </div>
-            <!-- <button
-                type="button"
-                id="play"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded mt-2 mb-2 ml-2"
-            >Play
-            </button>  -->
-            <div class= "inline-flex border-solid border-2 ml- gap-2 align-center">
+            <div class= "inline-flex border-solid border-0 ml- gap-2 align-center">
                 <div id="score" class="text-xl font-bold text-black pl-2 pt-2"></div>
                 <img id="rpicon" class="pr-2" src="img/rpicon.png">
             </div>
@@ -41,7 +33,16 @@
                 </button>
             </div>
         </nav>
-        <section>
+        <section id="welcomepage">
+        <div class= "flex flex-col place-content-center border-4 border-blue-500 m-6 py-2 bg-blue-300">
+            <h1 class="text-center">Welcome to the Poro-Clicker</h1><br>
+            <h2 class="text-center">How To Play?</h2>
+            <p class="text-center">1. Press "Play" to start the game</p>
+            <p class="text-center">2. Click on the poro to earn PR (= Points)</p>
+            <p class="text-center">3. Buy skills with your RP to get a click boost</p><br>
+        </div>
+    </section>
+        <section id="game" class="blur">
             <div class="grid grid-cols-5 p-5 flex flex-col align-center justify-center gap-3 mt-2">
                 <div 
                     id="clickonme"
@@ -109,15 +110,15 @@
                 </div>                
             </div>
         </section>
-        <script type="module" src="./main.js"></script>
             <div id="notification1">Your clicks are multiplied by 2</div>
             <div id="notification2">Your clicks are multiplied by 5</div>
             <div id="notification3">Your clicks are multiplied by 10</div>
 
             <div id="notification4">You earned an auto-click per 1s</div>
             <div id="notification5">Your earned a boost of 200% for 30s</div>
-        </section>
+        
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+        <script type="module" src="./main.js"></script>
     </body>
 </html>
