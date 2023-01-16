@@ -87,6 +87,10 @@ function updateScore() {
     checkScoreMultiplier5();
     checkScoreMultiplier10();
     checkScoreBonusTime();
+    obtainScore(pointsPerClick);
+    displayScore();
+    displayClicks();
+    click();
 }
 
 // Refresh score after a purchase
@@ -97,6 +101,36 @@ function refreshScore() {
     checkScoreMultiplier5();
     checkScoreMultiplier10();
     checkScoreBonusTime();
+}
+
+let totalObtainScore = 0;
+
+function obtainScore(score) {
+  totalObtainScore += score;
+}
+
+function displayScore() {
+  document.getElementById("obtain").innerHTML = "RP Obtenus : " + totalObtainScore;
+}
+
+let totalSpentScore = 0;
+
+function spentScore(value) {
+    totalSpentScore += value;
+}
+
+function displaySpent(){
+    document.getElementById("spent").innerHTML = "RP Depensée : " + totalSpentScore
+}
+
+let clicks = 1;
+
+function click(){
+    clicks += 1;
+}
+
+function displayClicks(){
+    document.getElementById("clicks").innerHTML = "Clicks : " + clicks
 }
 
 // Purchase & activate : Bonus - Auto Clicker
@@ -116,11 +150,12 @@ function autoClicker() {
     if (score >= bonusPriceAutoClicker) {
         autoClickerId.push(setInterval(updateScore, 1000));
         score -= bonusPriceAutoClicker;
+        spentScore(bonusPriceAutoClicker);
         bonusPriceAutoClicker *= 2;
         refreshScore();
+        displaySpent();
     } 
 }
-
 
 // Purchase & activate : Bonus - Multiplier
 let priceMultiplier = 10;
@@ -139,8 +174,10 @@ function multiplier() {
     if (score >= bonusPriceMultiplier) {
         pointsPerClick = pointsPerClick * 2;
         score -= bonusPriceMultiplier;
+        spentScore(bonusPriceMultiplier)
         bonusPriceMultiplier *= 2;
         refreshScore();
+        displaySpent();
     }
 }
 
@@ -160,8 +197,10 @@ function multiplier5() {
     if (score >= bonusPriceMultiplier5) {
         pointsPerClick = pointsPerClick * 5;
         score -= bonusPriceMultiplier5;
+        spentScore(bonusPriceMultiplier5)
         bonusPriceMultiplier5 *= 2;
         refreshScore();
+        displaySpent();
     }
 }
 
@@ -181,8 +220,10 @@ function multiplier10() {
     if (score >= bonusPriceMultiplier10) {
         pointsPerClick = pointsPerClick * 10;
         score -= bonusPriceMultiplier10;
+        spentScore(bonusPriceMultiplier10)
         bonusPriceMultiplier10 *= 2;
         refreshScore();
+        displaySpent();
     }
 }
 // Purchase & activate : Bonus - 200%/30sec
@@ -207,8 +248,10 @@ function time200() {
         }, 30000);
         score -= bonusPriceTime;
         refreshScore();
+        spentScore(bonusPriceTime)
         bonusPriceTime *= 2;
         updateScore();
+        displaySpent();
     }
 }
 
