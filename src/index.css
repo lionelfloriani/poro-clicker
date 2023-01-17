@@ -110,5 +110,12 @@ body {
 
 .disabled {
     background-color: gray;
-    cursor: not-allowed;
+}
+
+#bonus-multiplier:hover,
+#bonus-multiplier5:hover,
+#bonus-multiplier10:hover,
+#bonus-auto-clicker:hover,
+#bonus-time:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
