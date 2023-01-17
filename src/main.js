@@ -175,7 +175,7 @@ let priceAutoClicker = 50;
 let bonusPriceAutoClicker = priceAutoClicker;
 
 buttonBonusAutoClicker.onmouseover = function () {
-    buttonBonusAutoClicker.innerHTML = "(" + bonusPriceAutoClicker + " RP)";
+    buttonBonusAutoClicker.innerHTML = bonusPriceAutoClicker + "RP";
 };
 
 buttonBonusAutoClicker.onmouseout = function () {
@@ -224,7 +224,7 @@ const priceMultiplier5 = 250;
 let bonusPriceMultiplier5 = priceMultiplier5;
 
 buttonBonusMultiplier5.onmouseover = function () {
-    buttonBonusMultiplier5.innerHTML = "(" + bonusPriceMultiplier5 + " RP)";
+    buttonBonusMultiplier5.innerHTML = bonusPriceMultiplier5 + "RP";
 };
 
 buttonBonusMultiplier5.onmouseout = function () {
@@ -248,7 +248,7 @@ const priceMultiplier10 = 500;
 let bonusPriceMultiplier10 = priceMultiplier10;
 
 buttonBonusMultiplier10.onmouseover = function () {
-    buttonBonusMultiplier10.innerHTML = "(" + bonusPriceMultiplier10 + " RP)";
+    buttonBonusMultiplier10.innerHTML = bonusPriceMultiplier10 + "RP";
 };
 
 buttonBonusMultiplier10.onmouseout = function () {
@@ -273,7 +273,7 @@ let bonusPriceTime = priceBonusTime;
 
 buttonBonusTime.onmouseover = function () {
     if (gateMouseOver === 0) {
-        buttonBonusTime.innerHTML = "(" + bonusPriceTime + " RP)";
+        buttonBonusTime.innerHTML = bonusPriceTime + "RP";
     }
 };
 
