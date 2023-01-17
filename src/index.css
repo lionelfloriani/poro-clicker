@@ -1,3 +1,147 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.1)), url(./img/wp.webp);
+    background-attachment: fixed;
+    background-position: left;
+    font-family: sans-serif;
+} 
+
+h1{
+    font-size: 70px;
+    font-family: 'Passion One', cursive;
+}
+
+p{
+    font-size: 25px;
+    
+}
+#logoL {
+    width: 45px;
+    height: 45px;
+}
+
+#rpicon {
+    margin-top: 2px;
+    width: 50px;
+}
+#shop{
+    font-weight: 600;
+    font-size: 20px;
+    color: black;
+    /* text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white; */
+}
+@media (max-width: 850px) {
+    body{
+        height: 100vh;
+    }
+    #poro {
+        width: 250px;
+    }
+    h1{
+        font-size: 50px;}
+    p{
+        font-size: 20px;
+    }
+    #welcomepage{
+        margin-top: 100px; 
+    }
+}
+
+#poro {
+    width: 300px;
+    z-index: 1;
+}
+
+#notification1 {
+    position: fixed;
+    top: -15rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+#notification1.show {
+    top: 5rem;
+}
+
+#notification2 {
+    position: fixed;
+    top: -15rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+
+#notification2.show {
+    top: 5rem;
+}
+
+#notification3 {
+    position: fixed;
+    top: -15rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+#notification3.show {
+    top: 5rem;
+}
+
+#notification4 {
+    position: fixed;
+    top: -15rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+#notification4.show {
+    top: 5rem;
+}
+
+#notification5 {
+    position: fixed;
+    top: -15rem;
+    color: white;
+    background: rgb(84, 141, 233);
+    padding: 1rem 1rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+#notification5.show {
+    top: 5rem;
+}
+
+.disabled {
+    background-color: gray;
+}
+
+#bonus-multiplier:hover,
+#bonus-multiplier5:hover,
+#bonus-multiplier10:hover,
+#bonus-auto-clicker:hover,
+#bonus-time:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.5), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+@media (min-width: 896px) and (max-width: 950px){
+    body {
+        height: 100%;
+        padding-bottom: 40px;
+    }
+}
