@@ -47,39 +47,46 @@
         <section id="game" class="blur">
             <div class="lg:grid lg:grid-cols-5 flex flex-col justify-center">
                 <div class="lg:col-start-3 lg:col-end-4 flex flex-col justify-center align-middle">
-                    <div class="">
-                        <img id="rpicon" class="mx-auto" src="img/rpicon.png" />
-                        <div id="score" class="text-xl text-center font-bold text-black mx-1"></div>
-                      </div>                      
+                    <div class="grid grid-cols-7">
+                        <img id="rpicon" class="col-start-3 mx-auto" src="img/rpicon.png" />
+                        <div id="score" class="col-start-4 flex flex-col align-center justify-center mb-1 text-xl text-center font-bold text-black mx-1"></div>
+                    </div>                      
                     <div id="clickonme" class="text-center">Click on me !</div>
                     <img id="poro" class="mx-auto md:py-10" src="img/poro.svg" />
                 </div>                
 
-                <div class="lg:col-start-1 lg:col-end-2 md:text-left pb-10 px-10 pt-10 lg:mt-10 flex flex-col m-6 flex flex-col border-4 border-gray-800 bg-gray-500 text-white place-content-center p-3">
+                <div class="lg:col-start-1 lg:col-end-3 mx-20 md:text-left pb-10 px-10 pt-10 flex flex-col m-6 flex flex-col border-4 border-gray-800 bg-gray-500 text-white place-content-center p-3">
                     <div class="lg:col-start-1 lg:col-end-2 flex flex-col">
                         <div class="flex flex-col lg:gap-5 p-2 text-center">
                             <div id="obtain">RP Obtenus :</div>
                             <div id="spent">RP Depensés :</div>
                             <div id="clicks">Clicks :</div>
                             <div id="rpclicks">RP/Click : X1</div>
+                            <div id="autoclicksecond">Autoclick/S :</div>
                         </div>
                     </div>
                 </div>                               
-                <div class="lg:pr-10 px-10 sm:px-10 sm:pt-10 lg:col-start-5 lg:col-end-6 lg:mt-10 flex flex-col">
+                <div class="lg:pr-10 px-10 sm:px-10 sm:pt-10 lg:col-start-4 mx-20 lg:col-end-6 flex flex-col">
                     <div class="flex flex-col justify-end gap-4">
                         <div class="flex content-center justify-between gap-4">
-                            <button type="button" id="bonus-multiplier"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded grow">
+                            <button 
+                                type="button" 
+                                id="bonus-multiplier"
+                                class="bg-blue-500 text-white font-bold py-2 px-4 rounded grow"
+                            >
                                 X2
                             </button>
-                            <button type="button" id="bonus-multiplier5"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded grow">
+                            <button     
+                                type="button" 
+                                id="bonus-multiplier5"
+                                class="bg-blue-500 text-white font-bold py-2 px-4 rounded grow"
+                            >
                                 X5
                             </button>
                             <button
                                 type="button"
                                 id="bonus-multiplier10"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded grow"
+                                class="bg-blue-500 text-white font-bold py-2 px-4 rounded grow"
                             >
                                 X10
                             </button>
@@ -87,7 +94,7 @@
                         <button
                             type="button"
                             id="bonus-auto-clicker"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            class="bg-blue-500 text-white font-bold py-2 px-4 rounded"
                         >
                             Auto Click
                         </button>
@@ -95,7 +102,7 @@
                         <button
                             type="button"
                             id="bonus-time"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                            class="bg-blue-500 text-white font-bold py-2 px-4 rounded"
                         >
                             Bonus Time
                         </button>
@@ -103,12 +110,22 @@
                 </div>
             </div>
         </section>
-        <div id="notification1">Your clicks are multiplied by 2</div>
-        <div id="notification2">Your clicks are multiplied by 5</div>
-        <div id="notification3">Your clicks are multiplied by 10</div>
-        <div id="notification4">You earned an auto-click per 1s</div>
-        <div id="notification5">Your earned a boost of 200% for 30s</div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+            <div id="notification1">Your clicks are multiplied by 2</div>
+            <div id="notification2">Your clicks are multiplied by 5</div>
+            <div id="notification3">Your clicks are multiplied by 10</div>
+            <div id="notification4">You earned an auto-click per 1s</div>
+            <div id="notification5">Your earned a boost of 200% for 30s</div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+        <footer>
+            <a 
+                href="https://github.com/lionelfloriani/poro-clicker" 
+                class="inline-flex items-center justify-center p-5 text-base font-medium text-gray-500 rounded-lg 
+                       bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 
+                       dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+                Lien vers le code source ->
+            </a>
+        </footer>
         <script type="module" src="./main.js"></script>
     </body>
 </html>
