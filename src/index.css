@@ -122,12 +122,6 @@ p{
     top: 5rem;
 }
 
-.blur {
-    filter: 5px;
-    height: 100%;
-    width: 100%;
-}
-
 .disabled {
     background-color: gray;
 }
