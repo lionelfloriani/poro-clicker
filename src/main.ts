@@ -21,6 +21,9 @@ const notif2:HTMLElement | null = document.getElementById("notification2");
 const notif3:HTMLElement | null = document.getElementById("notification3");
 const notif4:HTMLElement | null = document.getElementById("notification4");
 const notif5:HTMLElement | null = document.getElementById("notification5");
+const buttonRp:HTMLElement | null = document.getElementById("rpicon"); 
+const buttonShop:HTMLElement | null = document.getElementById("shop");
+const gitHub:HTMLElement | null = document.getElementById("github");
 
 //LocalStorage
 let score:number = parseInt(localStorage.getItem("score") || "0");
@@ -32,22 +35,22 @@ let purchaseCount = parseInt(localStorage.getItem("numberPurchaseAutoClick") || 
 
 //Display right values on loading
 if (placeHolderClicks){
-    placeHolderClicks.innerHTML = "Clicks : " + clicks
+    placeHolderClicks.innerHTML = clicks
 }
 if (placeHolderObtain){
-    placeHolderObtain.innerHTML = "RP Obtenus : " + totalObtainScore;
+    placeHolderObtain.innerHTML = totalObtainScore;
 }
 if (placeHolderSpent){
-    placeHolderSpent.innerHTML = "RP Depensés : " + totalSpentScore;
+    placeHolderSpent.innerHTML = totalSpentScore;
 }
 if (rpsClicks){
-    rpsClicks.innerHTML = "RP/Click : X" + pointsPerClick;
+    rpsClicks.innerHTML = pointsPerClick;
 }
 if (scoreDisplay){
     scoreDisplay.innerHTML = score.toString();
 }
 if (clicksSecondes){
-    clicksSecondes.innerHTML = "Autoclick/s : " + purchaseCount
+    clicksSecondes.innerHTML = purchaseCount
 }
 //Functions
 
@@ -187,16 +190,16 @@ function reset() {
     bonusPriceTime = priceBonusTime
     purchaseCount = 0
     if (placeHolderClicks){
-        placeHolderClicks.innerHTML = "Clicks : " + clicks
+        placeHolderClicks.innerHTML = clicks.toString();
     }
     if (placeHolderObtain){
-        placeHolderObtain.innerHTML = "RP Obtenus : " + totalObtainScore;
+        placeHolderObtain.innerHTML = totalObtainScore.toString();
     }
     if (placeHolderSpent){
-        placeHolderSpent.innerHTML = "RP Depensés : " + totalSpentScore;
+        placeHolderSpent.innerHTML = totalSpentScore.toString();
     }
     if (rpsClicks){
-        rpsClicks.innerHTML = "RP/Click : X" + pointsPerClick;
+        rpsClicks.innerHTML = pointsPerClick.toString();
     }
     if (scoreDisplay){
         scoreDisplay.innerHTML = score.toString();
@@ -252,7 +255,7 @@ function obtainScore(score: number) {
 function displayScore() {
     localStorage.setItem("totalObtainScore", totalObtainScore.toString());
     if (placeHolderObtain){
-        placeHolderObtain.innerHTML = "RP Obtenus : " + totalObtainScore;
+        placeHolderObtain.innerHTML = totalObtainScore.toString();
     }
 }
 
@@ -270,7 +273,7 @@ function spentScore(value: number) {
 function displaySpent() {
     localStorage.setItem("totalSpentScore", totalSpentScore.toString());
     if (placeHolderSpent){
-        placeHolderSpent.innerHTML = "RP Depensés : " + totalSpentScore;
+        placeHolderSpent.innerHTML = totalSpentScore;
     }
 }
 
@@ -288,7 +291,7 @@ function click() {
 function displayClicks() {
     localStorage.setItem("click", clicks.toString());
     if (placeHolderClicks){
-        placeHolderClicks.innerHTML = "Clicks : " + clicks;
+        placeHolderClicks.innerHTML = clicks.toString();
     }
 }
 
@@ -297,7 +300,7 @@ function displayClicks() {
  */
 function rpPerClick() {
     if (rpsClicks){
-        rpsClicks.innerHTML = "RP/Click : X" + pointsPerClick;
+        rpsClicks.innerHTML = pointsPerClick.toString();
     }
 }
 
@@ -308,7 +311,7 @@ let bonusPriceAutoClicker:number = parseInt(localStorage.getItem("priceAutoClick
 
 if (buttonBonusAutoClicker){
     buttonBonusAutoClicker.onmouseover = function () {
-        buttonBonusAutoClicker.innerHTML = "(" + bonusPriceAutoClicker + " RP)";
+        buttonBonusAutoClicker.innerHTML = bonusPriceAutoClicker + "RP";
 }
 };
 
@@ -348,7 +351,7 @@ let bonusPriceMultiplier:number = parseInt(localStorage.getItem("priceMultiplier
 
 if (buttonBonusMultiplier){
     buttonBonusMultiplier.onmouseover = function () {
-        buttonBonusMultiplier.innerHTML = "(" + bonusPriceMultiplier + " RP)";
+        buttonBonusMultiplier.innerHTML = bonusPriceMultiplier + "RP";
 }
 };
 
@@ -381,7 +384,7 @@ let bonusPriceMultiplier5:number = parseInt(localStorage.getItem("priceMultiplie
 
 if (buttonBonusMultiplier5){
     buttonBonusMultiplier5.onmouseover = function () {
-        buttonBonusMultiplier5.innerHTML = "(" + bonusPriceMultiplier5 + " RP)";
+        buttonBonusMultiplier5.innerHTML = bonusPriceMultiplier5 + "RP";
 }
 };
 
@@ -414,7 +417,7 @@ let bonusPriceMultiplier10:number = parseInt(localStorage.getItem("priceMultipli
 
 if (buttonBonusMultiplier10){
     buttonBonusMultiplier10.onmouseover = function () {
-        buttonBonusMultiplier10.innerHTML = "(" + bonusPriceMultiplier10 + " RP)";
+        buttonBonusMultiplier10.innerHTML = bonusPriceMultiplier10 + "RP";
 }
 };
 
@@ -448,7 +451,7 @@ let bonusPriceTime:number = parseInt(localStorage.getItem("priceTime") || priceB
 if (buttonBonusTime){
     buttonBonusTime.onmouseover = function () {
         if (gateMouseOver === 0) {
-            buttonBonusTime.innerHTML = "(" + bonusPriceTime + " RP)";
+            buttonBonusTime.innerHTML = bonusPriceTime + "RP";
         }
     };
 }
@@ -651,6 +654,16 @@ if (playButton){
         if (welcomeText){
             welcomeText.style.display = "none";
         }
+        poro.style.display = "block";
+        buttonBonusMultiplier.style.display = "block";
+        buttonBonusMultiplier5.style.display = "block"; 
+        buttonBonusMultiplier10.style.display = "block"; 
+        buttonBonusAutoClicker.style.display = "block"; 
+        buttonBonusTime.style.display = "block";
+        buttonRp.style.display = "block";
+        buttonShop.style.display = "block";
+        scoreDisplay.style.display="block";
+        gitHub.style.display="block";
     });
 }
 if (document){
@@ -662,7 +675,16 @@ if (playButton){
 if (resetButtons){
     resetButtons.style.pointerEvents = "auto";
 }
-
+poro.style.display = "none";
+buttonBonusMultiplier.style.display = "none";
+buttonBonusMultiplier5.style.display = "none"; 
+buttonBonusMultiplier10.style.display = "none"; 
+buttonBonusAutoClicker.style.display = "none"; 
+buttonBonusTime.style.display = "none";
+buttonRp.style.display = "none";
+buttonShop.style.display = "none";
+scoreDisplay.style.display="none";
+gitHub.style.display="none";
 //    resetButtons.addEventListener("click", function() {
 //      gameStarted = false;
 //      // gamePage.classList.add("blur");
