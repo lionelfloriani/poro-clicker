@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 body {
-    height: 100%;
-    width: 100%;
-    background-image: url(./img/wp.jpeg);
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.1)), url(./img/wp.jpeg);
     background-position: left;
+    overflow: hidden;
+} 
+#welcomepage{
+ 
 }
-
 #logoL {
     width: 45px;
     height: 45px;
@@ -101,6 +104,8 @@ body {
 
 .blur {
     filter: 5px;
+    height: 100%;
+    width: 100%;
 }
 
 .disabled {
