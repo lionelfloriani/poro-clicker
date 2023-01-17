@@ -5,7 +5,7 @@
         <link rel="icon" type="image/svg+xml" href="favicon.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="index.css" />
-        <link rel="icon" type="image/x-icon" href="img/lolicon.png">
+        <link rel="icon" type="image/x-icon" href="img/lolicon.png" />
         <title>Poro Clicker</title>
     </head>
 
@@ -32,10 +32,13 @@
             </div>
         </nav>
         <section class="lg:grid lg:grid-cols-3" id="welcomepage">
-            <div id="test" class="lg:col-start-2 lg:col-end-3 flex flex-col place-content-center border-4 border-gray-800 bg-gray-700 text-white py-2">
+            <div
+                id="test"
+                class="lg:col-start-2 lg:col-end-3 flex flex-col place-content-center border-4 border-gray-800 bg-gray-700 text-white py-2"
+            >
                 <!-- <h1 class="text-center">Welcome to the Poro-Clicker</h1> -->
                 <br />
-                <h2 class="text-center ">How To Play?</h2>
+                <h2 class="text-center">How To Play?</h2>
                 <p class="text-center">1. Press "Play" to start the game</p>
                 <p class="text-center">2. Click on the poro to earn RP (= Points)</p>
                 <p class="text-center">3. Use your RP to unlock skills</p>
@@ -47,15 +50,14 @@
         <section id="game" class="blur">
             <div class="lg:grid lg:grid-cols-5 flex flex-col justify-center">
                 <div class="lg:col-start-3 lg:col-end-4 flex flex-col justify-center align-middle">
-                    <div class="">
-                        <img id="rpicon" class="mx-auto" src="img/rpicon.png" />
-                        <div id="score" class="text-xl text-center font-bold text-black mx-1"></div>
-                      </div>                      
+                    <div class="flex items-center justify-center">
+                        <img id="rpicon" class="mx-2" src="img/rpicon.png" />
+                        <div id="score" class="text-xl font-bold text-black mx-1"></div>
+                    </div>
                     <div id="clickonme" class="text-center">Click on me !</div>
-                    <img id="poro" class="mx-auto md:py-10" src="img/poro.svg" />
-                </div>                
-
-                <div class="lg:col-start-1 lg:col-end-2 md:text-left pb-10 px-10 pt-10 lg:mt-10 flex flex-col m-6 flex flex-col border-4 border-gray-800 bg-gray-500 text-white place-content-center p-3">
+                    <img id="poro" class="mx-auto pt-10" src="img/poro.svg" />
+                </div>
+                <div class="lg:col-start-1 lg:col-end-2 md:text-left sm:mx-auto px-10 pt-10 flex flex-col">
                     <div class="lg:col-start-1 lg:col-end-2 flex flex-col">
                         <div class="flex flex-col lg:gap-5 p-2 text-center">
                             <div id="obtain">RP Obtenus :</div>
@@ -64,16 +66,22 @@
                             <div id="rpclicks">RP/Click : X1</div>
                         </div>
                     </div>
-                </div>                               
-                <div class="lg:pr-10 px-10 sm:px-10 sm:pt-10 lg:col-start-5 lg:col-end-6 lg:mt-10 flex flex-col">
+                </div>
+                <div class="lg:pr-10 px-10 sm:px-10 sm:pt-10 lg:col-start-5 lg:col-end-6 flex flex-col">
                     <div class="flex flex-col justify-end gap-4">
                         <div class="flex content-center justify-between gap-4">
-                            <button type="button" id="bonus-multiplier"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded grow">
+                            <button
+                                type="button"
+                                id="bonus-multiplier"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded grow"
+                            >
                                 X2
                             </button>
-                            <button type="button" id="bonus-multiplier5"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded grow">
+                            <button
+                                type="button"
+                                id="bonus-multiplier5"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded grow"
+                            >
                                 X5
                             </button>
                             <button
@@ -109,6 +117,6 @@
         <div id="notification4">You earned an auto-click per 1s</div>
         <div id="notification5">Your earned a boost of 200% for 30s</div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-        <script type="module" src="./main.js"></script>
+        <script type="module" src="./main.ts"></script>
     </body>
 </html>
