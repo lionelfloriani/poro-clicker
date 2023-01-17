@@ -197,7 +197,7 @@ const priceMultiplier = 50;
 let bonusPriceMultiplier = priceMultiplier;
 
 buttonBonusMultiplier.onmouseover = function () {
-    buttonBonusMultiplier.innerHTML = "(" + bonusPriceMultiplier + " RP)";
+    buttonBonusMultiplier.innerHTML = bonusPriceMultiplier + "RP";
 };
 
 buttonBonusMultiplier.onmouseout = function () {
