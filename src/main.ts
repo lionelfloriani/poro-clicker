@@ -140,7 +140,7 @@ function checkScoreBonusTime() {
 }
 
 /**
- * Reset LocalStorage and reload the page
+ * Reset the game
  */
 function reset() {
     // location.reload();
@@ -225,6 +225,7 @@ function updateScore() {
     click();
     displayClicks();
     rpPerClick();
+    clicksec()
 }
 
 /**
@@ -301,6 +302,15 @@ function displayClicks() {
 function rpPerClick() {
     if (rpsClicks){
         rpsClicks.innerHTML = pointsPerClick.toString();
+    }
+}
+
+/**
+ * Refresh the "Clicks/s" on the page
+ */
+function clicksec(){
+    if (clicksSecondes){
+        clicksSecondes.innerHTML = purchaseCount.toString()
     }
 }
 
