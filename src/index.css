@@ -6,16 +6,16 @@ body {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.1)), url(./img/wp.jpeg);
     background-position: left;
+    font-family: sans-serif;
 } 
 
 h1{
     font-size: 70px;
-    font-family: 'Rowdies', cursive;
+    font-family: 'Passion One', cursive;
 }
 
 p{
     font-size: 25px;
-    font-family: 'Rowdies', cursive;
     
 }
 #logoL {
@@ -27,10 +27,10 @@ p{
     width: 60px;
 }
 #shop{
-    font-family: 'Rowdies', cursive;
+    font-weight: 600;
     font-size: 20px;
     color: black;
-    text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
+    /* text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white; */
 }
 @media (max-width: 850px) {
     body{
