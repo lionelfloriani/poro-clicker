@@ -4,13 +4,19 @@
 
 body {
     height: 100vh;
-    width: 100vw;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.1)), url(./img/wp.jpeg);
     background-position: left;
-    overflow: hidden;
 } 
-#welcomepage{
- 
+
+h1{
+    font-size: 70px;
+    font-family: 'Rowdies', cursive;
+}
+
+p{
+    font-size: 25px;
+    font-family: 'Rowdies', cursive;
+    
 }
 #logoL {
     width: 45px;
@@ -20,15 +26,29 @@ body {
 #rpicon {
     width: 60px;
 }
-
-@media (min-width: 340px) {
+#shop{
+    font-family: 'Rowdies', cursive;
+    font-size: 20px;
+    color: black;
+    text-shadow: 1px 1px 2px white, 0 0 1em white, 0 0 0.2em white;
+}
+@media (max-width: 850px) {
+    body{
+        height: 100vh;
+    }
     #poro {
         width: 250px;
+    }
+    h1{
+        font-size: 50px;}
+    #welcomepage{
+        margin-top: 100px; 
     }
 }
 
 #poro {
     width: 300px;
+    z-index: 1;
 }
 
 #notification1 {

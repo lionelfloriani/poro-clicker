@@ -20,12 +20,15 @@ const buttonBonusMultiplier10 = document.getElementById("bonus-multiplier10");
 const buttonBonusAutoClicker = document.getElementById("bonus-auto-clicker");
 const buttonBonusTime = document.getElementById("bonus-time");
 const resetButtons = document.getElementById("reset");
+const buttonRp = document.getElementById("rpicon"); 
+const buttonShop = document.getElementById("shop");
+// const gitHub = document.getElementById("github");
 const autoClickerId = [];
 
-document.getElementById("clicks").innerHTML = "Clicks : " + clicks;
-document.getElementById("obtain").innerHTML = "RP Obtenus : " + totalObtainScore;
-document.getElementById("spent").innerHTML = "RP Depensés : " + totalSpentScore;
-document.getElementById("rpclicks").innerHTML = "RP/Click : X" + pointsPerClick;
+document.getElementById("clicks").innerHTML = clicks;
+document.getElementById("obtain").innerHTML = totalObtainScore;
+document.getElementById("spent").innerHTML = totalSpentScore;
+document.getElementById("rpclicks").innerHTML = pointsPerClick;
 scoreDisplay.innerHTML = score;
 // FUNCTION
 
@@ -141,7 +144,7 @@ function obtainScore(score) {
 
 function displayScore() {
     localStorage.setItem("totalObtainScore", totalObtainScore);
-    document.getElementById("obtain").innerHTML = "RP Obtenus : " + totalObtainScore;
+    document.getElementById("obtain").innerHTML = totalObtainScore;
 }
 
 function spentScore(value) {
@@ -150,7 +153,7 @@ function spentScore(value) {
 
 function displaySpent() {
     localStorage.setItem("totalSpentScore", totalSpentScore);
-    document.getElementById("spent").innerHTML = "RP Depensés : " + totalSpentScore;
+    document.getElementById("spent").innerHTML = totalSpentScore;
 }
 
 function click() {
@@ -160,11 +163,11 @@ function click() {
 
 function displayClicks() {
     localStorage.setItem("click", clicks);
-    document.getElementById("clicks").innerHTML = "Clicks : " + clicks;
+    document.getElementById("clicks").innerHTML = clicks;
 }
 
 function rpPerClick() {
-    document.getElementById("rpclicks").innerHTML = "RP/Click : X" + pointsPerClick;
+    document.getElementById("rpclicks").innerHTML = pointsPerClick;
 }
 
 // Purchase & activate : Bonus - Auto Clicker
@@ -439,19 +442,34 @@ playButton.addEventListener("click", function () {
         checkScoreBonusTime();
     }
     gameStarted = true;
-    gamePage.classList.remove("blur");
+    gamePage.classList.remove("truncate");
     gamePage.style.pointerEvents = "auto";
     welcomeText.style.display = "none";
+    poro.style.display = "block";
+    buttonBonusMultiplier.style.display = "block";
+    buttonBonusMultiplier5.style.display = "block"; 
+    buttonBonusMultiplier10.style.display = "block"; 
+    buttonBonusAutoClicker.style.display = "block"; 
+    buttonBonusTime.style.display = "block";
+    buttonRp.style.display = "block";
+    buttonShop.style.display = "block";
+    scoreDisplay.style.display="block";
+    // gitHub.style.display="block";
+
+
 });
 
 document.body.style.pointerEvents = "none";
 playButton.style.pointerEvents = "auto";
 resetButtons.style.pointerEvents = "auto";
+poro.style.display = "none";
+buttonBonusMultiplier.style.display = "none";
+buttonBonusMultiplier5.style.display = "none"; 
+buttonBonusMultiplier10.style.display = "none"; 
+buttonBonusAutoClicker.style.display = "none"; 
+buttonBonusTime.style.display = "none";
+buttonRp.style.display = "none";
+buttonShop.style.display = "none";
+scoreDisplay.style.display="none";
+// gitHub.style.display="none";
 
-//    resetButtons.addEventListener("click", function() {
-//      gameStarted = false;
-//      // gamePage.classList.add("blur");
-//      gamePage.style.pointerEvents = "none";
-//      score.innerHTML = 0;
-//      document.body.style.pointerEvents = "none";
-//    });
