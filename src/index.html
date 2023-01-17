@@ -16,20 +16,20 @@
     <body>
         <nav class="flex align-center items-center p-4">
             <div class="flex justify-start align-middle basis-1/2">
-                <img id="logoL" src="img/lolicon.png">
+                <img id="logoL" src="img/lolicon.webp" alt=""/>
             </div>
             <div class="flex justify-end align-middle basis-1/2">
                 <button
                     type="button"
                     id="play"
-                    class="bg-amber-400 hover:bg-blue-700 text-white font-bold px-3 py-1 rounded mt-2 mb-2 ml-2"
+                    class="bg-blue-700 hover:bg-amber-500 text-white font-bold px-3 py-1 rounded mt-2 mb-2 ml-2"
                 >
                     Play
                 </button>
                 <button
                     type="button"
                     id="reset"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-3 py-1 rounded mt-2 mb-2 ml-2"
+                    class="bg-blue-700 text-white font-bold px-3 py-1 rounded mt-2 mb-2 ml-2"
                 >
                     Reset
                 </button>
@@ -38,7 +38,6 @@
         <section class="lg:grid lg:grid-cols-3" id="welcomepage">
             <div id="test" class="lg:col-start-2 lg:col-end-3 flex flex-col place-content-center py-2">
                 <h1 class="text-center">HOW TO PLAY?</h1>
-
                 <p class="text-center">1. Press "Play" to start the game</p>
                 <p class="text-center">2. Click on the poro to earn RP (= Points)</p>
                 <p class="text-center">3. Use your RP to buy skills</p>
@@ -52,14 +51,14 @@
             <div class="lg:grid lg:grid-cols-5 flex flex-col justify-center">
                 <div class="lg:col-start-3 lg:col-end-4 flex flex-col justify-center align-middle">
                     <div class="flex items-center justify-center">
-                        <img id="rpicon" class="mx-2" src="img/rpicon.png">
+                        <img id="rpicon" class="mx-2" src="img/rpicon.webp" alt=""/>
                         <div id="score" class="text-xl font-bold text-black mx-1"></div>
                     </div>
-                    <img id="poro" class="mx-auto pt-10" src="img/poro.svg">
-                </div>
-                <div class="lg:col-start-1 lg:col-end-3 md:text-left sm:mx-auto m-3 flex flex-col border-0">
+                    <img id="poro" class="mx-auto pt-10" src="img/poro.svg" />
+                </div>                
+                <div class="lg:col-start-1 lg:col-end-3 md:text-left sm:mx-auto px-10 mt-10 flex flex-col border-0">
                     <div class="lg:col-start-1 lg:col-end-3 flex flex-col">
-                        <table id="shop" class="table-auto flex flex-col border-0 rounded-lg bg-transparent p-5 mx-auto">
+                        <table id="shop" class="table-auto flex flex-col border-0 rounded-lg bg-neutral-500/50 p-5 mx-auto">
                             <tbody>
                                 <tr>
                                     <td class="pr-5">RP obtained</td>
@@ -81,7 +80,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="lg:pr-10 sm:px-10 sm:pt-10 lg:col-start-4 lg:col-end-6 flex flex-col mx-20">
+                <div class="lg:pr-10 sm:px-10 mt-10 lg:col-start-4 lg:col-end-6 flex flex-col mx-20">
                     <div class="flex flex-col justify-end gap-4">
                         <div class="flex content-center justify-between gap-4">
                             <button
@@ -127,15 +126,17 @@
         <div id="notification4">You earned an auto-click per 1s</div>
         <div id="notification5">Your earned a boost of 200% for 30s</div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-        <!-- <footer>
-            <a
+        <footer class="lg:grid lg:grid-cols-5 mt-20">
+            <div class="relative mt-20 ml-20 border-0 rounded-lg bg-neutral-500/50">
+                <a
                 href="https://github.com/lionelfloriani/poro-clicker"
-                class="inline-flex items-center justify-center p-5 text-base font-medium text-gray-500 rounded-lg bg-gray-50 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white"
+                class="absolute inline-flex items-center justify-center p-5 text-base font-medium border-0 rounded-lg bg-neutral-500/50 mx-auto justify-end"
                 id="github"
             >
-                Lien vers le code source ->
+                Link to the source code ->
             </a>
-        </footer> -->
+            </div>
+        </footer>
         <script type="module" src="./main.ts"></script>
     </body>
 </html>
