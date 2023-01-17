@@ -35,22 +35,22 @@ let purchaseCount = parseInt(localStorage.getItem("numberPurchaseAutoClick") || 
 
 //Display right values on loading
 if (placeHolderClicks){
-    placeHolderClicks.innerHTML = clicks
+    placeHolderClicks.innerHTML = clicks.toString()
 }
 if (placeHolderObtain){
-    placeHolderObtain.innerHTML = totalObtainScore;
+    placeHolderObtain.innerHTML = totalObtainScore.toString();
 }
 if (placeHolderSpent){
-    placeHolderSpent.innerHTML = totalSpentScore;
+    placeHolderSpent.innerHTML = totalSpentScore.toString();
 }
 if (rpsClicks){
-    rpsClicks.innerHTML = pointsPerClick;
+    rpsClicks.innerHTML = pointsPerClick.toString();
 }
 if (scoreDisplay){
     scoreDisplay.innerHTML = score.toString();
 }
 if (clicksSecondes){
-    clicksSecondes.innerHTML = purchaseCount
+    clicksSecondes.innerHTML = purchaseCount.toString()
 }
 //Functions
 
@@ -273,7 +273,7 @@ function spentScore(value: number) {
 function displaySpent() {
     localStorage.setItem("totalSpentScore", totalSpentScore.toString());
     if (placeHolderSpent){
-        placeHolderSpent.innerHTML = totalSpentScore;
+        placeHolderSpent.innerHTML = totalSpentScore.toString();
     }
 }
 
@@ -342,6 +342,9 @@ function autoClicker() {
         rpPerClick();
         localStorage.setItem("priceAutoClicker", bonusPriceAutoClicker.toString());
         localStorage.setItem("numberPurchaseAutoClick", purchaseCount.toString())
+        return true
+    } else {
+        return false
     }
 }
 
@@ -375,6 +378,9 @@ function multiplier() {
         displaySpent();
         rpPerClick();
         localStorage.setItem("priceMultiplier", bonusPriceMultiplier.toString());
+        return true
+    } else {
+        return false
     }
 }
 
@@ -408,6 +414,9 @@ function multiplier5() {
         displaySpent();
         rpPerClick();
         localStorage.setItem("priceMultiplier5", bonusPriceMultiplier5.toString())
+        return true
+    } else {
+        return false
     }
 }
 
@@ -441,6 +450,9 @@ function multiplier10() {
         displaySpent();
         rpPerClick();
         localStorage.setItem("priceMultiplier10", bonusPriceMultiplier10.toString())
+        return true
+    } else {
+        return false
     }
 }
 
@@ -520,6 +532,7 @@ function time200() {
                 displaySpent();
                 rpPerClick();
                 localStorage.setItem("priceTime", bonusPriceTime.toString())
+                return true
             }
         } else {
             if (score >= bonusPriceTime) {
@@ -536,9 +549,15 @@ function time200() {
                 bonusPriceTime *= 2;
                 timeLeft = 30;
                 localStorage.setItem("priceTime", bonusPriceTime.toString())
+                return true
+            } else {
+                return false
             }
         }
+    } else {
+        return false
     }
+    return false
 }
 
 //EventListeners
@@ -556,56 +575,61 @@ if (poro){
 
 if (buttonBonusMultiplier){
     buttonBonusMultiplier.addEventListener("click", function(){
-        multiplier()
-        if (notif1){
-            notif1.classList.add("show");
-            setTimeout(() => {
-                notif1.classList.remove("show");
-            }, 2000);
+        if (multiplier() === true){
+            if (notif1){
+                notif1.classList.add("show");
+                setTimeout(() => {
+                    notif1.classList.remove("show");
+                }, 2000);
+            }
         }
     });
 }
 if (buttonBonusMultiplier5){
     buttonBonusMultiplier5.addEventListener("click", function(){
-        multiplier5()
-        if (notif2){
-            notif2.classList.add("show");
-            setTimeout(() => {
-                notif2.classList.remove("show");
-            }, 2000);
+        if (multiplier5() === true){
+            if (notif2){
+                notif2.classList.add("show");
+                setTimeout(() => {
+                    notif2.classList.remove("show");
+                }, 2000);
+            }
         }
     });
 }
 if (buttonBonusMultiplier10){
     buttonBonusMultiplier10.addEventListener("click", function(){
-        multiplier10()
-        if (notif3){
-            notif3.classList.add("show");
-            setTimeout(() => {
-                notif3.classList.remove("show");
-            }, 2000);
+        if (multiplier10() === true){
+            if (notif3){
+                notif3.classList.add("show");
+                setTimeout(() => {
+                    notif3.classList.remove("show");
+                }, 2000);
+            }
         }
     });
 }
 if (buttonBonusAutoClicker){
     buttonBonusAutoClicker.addEventListener("click", function(){
-        autoClicker();
-        if (notif4){
-            notif4.classList.add("show");
-            setTimeout(() => {
-                notif4.classList.remove("show");
-            }, 2000);
+        if (autoClicker() === true){
+            if (notif4){
+                notif4.classList.add("show");
+                setTimeout(() => {
+                    notif4.classList.remove("show");
+                }, 2000);
+            }
         }
     });
 }
 if (buttonBonusTime){
     buttonBonusTime.addEventListener("click", function(){
-        time200()
-        if (notif5){
-            notif5.classList.add("show");
-            setTimeout(() => {
-                notif5.classList.remove("show");
-            }, 2000);
+        if (time200() === true){
+            if (notif5){
+                notif5.classList.add("show");
+                setTimeout(() => {
+                    notif5.classList.remove("show");
+                }, 2000);
+            }
         }
     });
 }
@@ -654,16 +678,36 @@ if (playButton){
         if (welcomeText){
             welcomeText.style.display = "none";
         }
-        poro.style.display = "block";
-        buttonBonusMultiplier.style.display = "block";
-        buttonBonusMultiplier5.style.display = "block"; 
-        buttonBonusMultiplier10.style.display = "block"; 
-        buttonBonusAutoClicker.style.display = "block"; 
-        buttonBonusTime.style.display = "block";
-        buttonRp.style.display = "block";
-        buttonShop.style.display = "block";
-        scoreDisplay.style.display="block";
-        gitHub.style.display="block";
+        if (poro){
+            poro.style.display = "block";
+        }
+        if (buttonBonusMultiplier){
+            buttonBonusMultiplier.style.display = "block";
+        }
+        if (buttonBonusMultiplier5){
+            buttonBonusMultiplier5.style.display = "block"; 
+        }
+        if (buttonBonusMultiplier10){
+            buttonBonusMultiplier10.style.display = "block"; 
+        }
+        if (buttonBonusAutoClicker){
+            buttonBonusAutoClicker.style.display = "block"; 
+        }
+        if (buttonBonusTime){
+            buttonBonusTime.style.display = "block";
+        }
+        if (buttonRp){
+            buttonRp.style.display = "block";
+        }
+        if (buttonShop){
+            buttonShop.style.display = "block";
+        }
+        if (scoreDisplay){
+            scoreDisplay.style.display="block";
+        }
+        if (gitHub){
+            gitHub.style.display="block";
+        }
     });
 }
 if (document){
@@ -675,16 +719,36 @@ if (playButton){
 if (resetButtons){
     resetButtons.style.pointerEvents = "auto";
 }
-poro.style.display = "none";
-buttonBonusMultiplier.style.display = "none";
-buttonBonusMultiplier5.style.display = "none"; 
-buttonBonusMultiplier10.style.display = "none"; 
-buttonBonusAutoClicker.style.display = "none"; 
-buttonBonusTime.style.display = "none";
-buttonRp.style.display = "none";
-buttonShop.style.display = "none";
-scoreDisplay.style.display="none";
-gitHub.style.display="none";
+if (poro){
+    poro.style.display = "none";
+}
+if (buttonBonusMultiplier){
+    buttonBonusMultiplier.style.display = "none";
+}
+if (buttonBonusMultiplier5){
+    buttonBonusMultiplier5.style.display = "none"; 
+}
+if (buttonBonusMultiplier10){
+    buttonBonusMultiplier10.style.display = "none"; 
+}
+if (buttonBonusAutoClicker){
+    buttonBonusAutoClicker.style.display = "none"; 
+}
+if (buttonBonusTime){
+    buttonBonusTime.style.display = "none";
+}
+if (buttonRp){
+    buttonRp.style.display = "none";
+}
+if (buttonShop){
+    buttonShop.style.display = "none";
+}
+if (scoreDisplay){
+    scoreDisplay.style.display="none";
+}
+if (gitHub){
+    gitHub.style.display="none";
+}
 //    resetButtons.addEventListener("click", function() {
 //      gameStarted = false;
 //      // gamePage.classList.add("blur");
