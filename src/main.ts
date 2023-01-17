@@ -346,7 +346,7 @@ function autoClicker() {
         autoClickerId.push(setInterval(updateScore, 1000));
         score -= bonusPriceAutoClicker;
         spentScore(bonusPriceAutoClicker);
-        bonusPriceAutoClicker *= 2;
+        bonusPriceAutoClicker *= 5;
         refreshScore();
         displaySpent();
         rpPerClick();
@@ -383,7 +383,7 @@ function multiplier() {
         localStorage.setItem("pointsPerClick", pointsPerClick.toString());
         score -= bonusPriceMultiplier;
         spentScore(bonusPriceMultiplier);
-        bonusPriceMultiplier *= 2;
+        bonusPriceMultiplier *= 5;
         refreshScore();
         displaySpent();
         rpPerClick();
@@ -419,7 +419,7 @@ function multiplier5() {
         localStorage.setItem("pointsPerClick", pointsPerClick.toString());
         score -= bonusPriceMultiplier5;
         spentScore(bonusPriceMultiplier5);
-        bonusPriceMultiplier5 *= 2;
+        bonusPriceMultiplier5 *= 5;
         refreshScore();
         displaySpent();
         rpPerClick();
@@ -455,7 +455,7 @@ function multiplier10() {
         localStorage.setItem("pointsPerClick", pointsPerClick.toString());
         score -= bonusPriceMultiplier10;
         spentScore(bonusPriceMultiplier10);
-        bonusPriceMultiplier10 *= 2;
+        bonusPriceMultiplier10 *= 10;
         refreshScore();
         displaySpent();
         rpPerClick();
@@ -536,7 +536,7 @@ function time200() {
                 score -= bonusPriceTime;
                 refreshScore();
                 spentScore(bonusPriceTime);
-                bonusPriceTime *= 2;
+                bonusPriceTime *= 5;
                 timeLeft = 30;
                 innerIndex = 1;
                 displaySpent();
