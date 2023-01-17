@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="index.css" />
-        <link rel="icon" type="image/x-icon" href="img/lolicon.webp" alt="">
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/svg+xml" href="favicon.svg">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Cookie Cliker alike. You click on a Poro instead of a Cookie.">
+        <link rel="stylesheet" href="index.css">
+        <link rel="icon" type="image/x-icon" href="img/lolicon.png alt="">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@300&display=swap" rel="stylesheet">
         <title>Poro Clicker</title>
     </head>
 
@@ -44,18 +46,18 @@
                 <p class="text-center">5. To restart the game press "Reset"</p>
             </div>
         </section>
-        <section id="game" class="truncate">
+        <div id="game" class="truncate">
             <div class="lg:grid lg:grid-cols-5 flex flex-col justify-center">
                 <div class="lg:col-start-3 lg:col-end-4 flex flex-col justify-center align-middle">
                     <div class="flex items-center justify-center">
                         <img id="rpicon" class="mx-2" src="img/rpicon.webp" alt=""/>
                         <div id="score" class="text-xl font-bold text-black mx-1"></div>
                     </div>
-                    <img id="poro" class="mx-auto pt-10" src="img/poro.svg" />
-                </div>                
-                <div class="lg:col-start-1 lg:col-end-2 md:text-left sm:mx-auto px-10 m-3 flex flex-col border-0">
-                    <div class="lg:col-start-1 lg:col-end-2 flex flex-col">
-                        <table id="shop" class="table-auto flex flex-col border-0 rounded-lg bg-neutral-500/50 p-5 mx-auto">
+                    <img id="poro" class="mx-auto pt-10" src="img/poro.svg">
+                </div>
+                <div class="lg:col-start-1 lg:col-end-3 md:text-left sm:mx-auto m-3 flex flex-col border-0">
+                    <div class="lg:col-start-1 lg:col-end-3 flex flex-col">
+                        <table id="shop" class="table-auto flex flex-col border-0 rounded-lg bg-transparent p-5 mx-auto">
                             <tbody>
                                 <tr>
                                     <td class="pr-5">RP obtained</td>
@@ -116,7 +118,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         <div id="notification1">Your clicks are multiplied by 2</div>
         <div id="notification2">Your clicks are multiplied by 5</div>
         <div id="notification3">Your clicks are multiplied by 10</div>
