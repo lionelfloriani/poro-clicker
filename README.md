@@ -26,4 +26,4 @@ Thank you for playing Poro-Clicker! We hope you have a lot of fun and enjoy the 
 
 ### Feel free to visit 
 
-https://lionelfloriani.github.io/cookie-clicker
+[Poro-Clicker](https://lionelfloriani.github.io/poro-clicker/)
