@@ -153,7 +153,6 @@ function reset() {
     bonusPriceMultiplier10 = priceMultiplier10;
     bonusPriceTime = priceBonusTime;
     autoClickerId.forEach(clearInterval);
-    refreshScore();
     // clearTimeout(time200);
     // clearTimeout(timerId);
     timeLeft = -1;
@@ -189,6 +188,7 @@ function reset() {
     bonusPriceMultiplier10 = priceMultiplier10
     bonusPriceTime = priceBonusTime
     purchaseCount = 0
+    refreshScore();
     if (placeHolderClicks){
         placeHolderClicks.innerHTML = clicks.toString();
     }
@@ -240,6 +240,7 @@ function refreshScore() {
     checkScoreMultiplier5();
     checkScoreMultiplier10();
     checkScoreBonusTime();
+    clicksec()
 }
 
 /**
@@ -721,7 +722,7 @@ if (playButton){
     });
 }
 if (document){
-    document.body.style.pointerEvents = "none";
+    // document.body.style.pointerEvents = "";
 }
 if (playButton){
     playButton.style.pointerEvents = "auto";
