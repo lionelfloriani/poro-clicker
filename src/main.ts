@@ -791,3 +791,4 @@ if (scoreDisplay) {
 if (gitHub) {
   gitHub.style.display = 'none';
 }
+
