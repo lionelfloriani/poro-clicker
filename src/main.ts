@@ -140,7 +140,7 @@ function checkScoreBonusTime() {
 }
 
 /**
- * Reset LocalStorage and reload the page
+ * Reset the game
  */
 function reset() {
     // location.reload();
@@ -225,6 +225,7 @@ function updateScore() {
     click();
     displayClicks();
     rpPerClick();
+    clicksec()
 }
 
 /**
@@ -304,6 +305,15 @@ function rpPerClick() {
     }
 }
 
+/**
+ * Refresh the "Clicks/s" on the page
+ */
+function clicksec(){
+    if (clicksSecondes){
+        clicksSecondes.innerHTML = purchaseCount.toString()
+    }
+}
+
 //BONUSES
 //Auto-Clicker
 const priceAutoClicker:number = 50;
@@ -336,7 +346,7 @@ function autoClicker() {
         autoClickerId.push(setInterval(updateScore, 1000));
         score -= bonusPriceAutoClicker;
         spentScore(bonusPriceAutoClicker);
-        bonusPriceAutoClicker *= 2;
+        bonusPriceAutoClicker *= 5;
         refreshScore();
         displaySpent();
         rpPerClick();
@@ -349,7 +359,7 @@ function autoClicker() {
 }
 
 //Multiplier
-const priceMultiplier:number = 50;
+const priceMultiplier:number = 500;
 let bonusPriceMultiplier:number = parseInt(localStorage.getItem("priceMultiplier") || priceMultiplier.toString());
 
 if (buttonBonusMultiplier){
@@ -373,7 +383,7 @@ function multiplier() {
         localStorage.setItem("pointsPerClick", pointsPerClick.toString());
         score -= bonusPriceMultiplier;
         spentScore(bonusPriceMultiplier);
-        bonusPriceMultiplier *= 2;
+        bonusPriceMultiplier *= 10;
         refreshScore();
         displaySpent();
         rpPerClick();
@@ -385,7 +395,7 @@ function multiplier() {
 }
 
 //Mutliplier5
-const priceMultiplier5:number = 250;
+const priceMultiplier5:number = 2500;
 let bonusPriceMultiplier5:number = parseInt(localStorage.getItem("priceMultiplier5") || priceMultiplier5.toString());
 
 if (buttonBonusMultiplier5){
@@ -409,7 +419,7 @@ function multiplier5() {
         localStorage.setItem("pointsPerClick", pointsPerClick.toString());
         score -= bonusPriceMultiplier5;
         spentScore(bonusPriceMultiplier5);
-        bonusPriceMultiplier5 *= 2;
+        bonusPriceMultiplier5 *= 15;
         refreshScore();
         displaySpent();
         rpPerClick();
@@ -421,7 +431,7 @@ function multiplier5() {
 }
 
 //Multiplier10
-const priceMultiplier10:number = 500;
+const priceMultiplier10:number = 5000;
 let bonusPriceMultiplier10:number = parseInt(localStorage.getItem("priceMultiplier10") || priceMultiplier10.toString());
 
 if (buttonBonusMultiplier10){
@@ -445,7 +455,7 @@ function multiplier10() {
         localStorage.setItem("pointsPerClick", pointsPerClick.toString());
         score -= bonusPriceMultiplier10;
         spentScore(bonusPriceMultiplier10);
-        bonusPriceMultiplier10 *= 2;
+        bonusPriceMultiplier10 *= 20;
         refreshScore();
         displaySpent();
         rpPerClick();
@@ -526,7 +536,7 @@ function time200() {
                 score -= bonusPriceTime;
                 refreshScore();
                 spentScore(bonusPriceTime);
-                bonusPriceTime *= 2;
+                bonusPriceTime *= 5;
                 timeLeft = 30;
                 innerIndex = 1;
                 displaySpent();
